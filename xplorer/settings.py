@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ["localhost",
-                 "xplorer-p4-ad2c5b0b95ce.herokuapp.com/", "8000-kpetrauskas92-xplorer-u3mwr48g6c.us2.codeanyapp.com"]
+                 "xplorer-p4-ad2c5b0b95ce.herokuapp.com", "8000-kpetrauskas92-xplorer-u3mwr48g6c.us2.codeanyapp.com"]
 
 SITE_ID = 1
 
