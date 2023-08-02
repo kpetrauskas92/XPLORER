@@ -20,7 +20,6 @@ if os.path.isfile("env.py"):
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -34,10 +33,19 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ["localhost",
-                 "xplorer-p4-ad2c5b0b95ce.herokuapp.com/"]
+                 "xplorer-p4-ad2c5b0b95ce.herokuapp.com/", "8000-kpetrauskas92-xplorer-u3mwr48g6c.us2.codeanyapp.com"]
 
+SITE_ID = 1
 
 # Application definition
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+LOGIN_REDIRECT_URL = 'index'
+ACCOUNT_EMAIL_REQUIRED = False
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -45,10 +53,17 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    'users_app',
+    'crispy_forms',
+    "crispy_bootstrap4",
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'landing',
+    'social',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +81,7 @@ ROOT_URLCONF = 'xplorer.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,6 +93,11 @@ TEMPLATES = [
         },
     },
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
 
 WSGI_APPLICATION = 'xplorer.wsgi.application'
 
