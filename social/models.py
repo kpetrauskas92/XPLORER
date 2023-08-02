@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.core.files import File
 from django.conf import settings
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 import os
 
 class Post(models.Model):
@@ -24,12 +26,14 @@ class UserProfile(models.Model):
     bio = models.TextField(max_length=200, blank=True, null=True)
     birth_date = models.DateField(null=True, blank=True)
     location = models.CharField(max_length=50, blank=True, null=True)
-    picture = CloudinaryField('profile_image', blank=True)
+    picture = CloudinaryField('profile_image', blank=True, default='blank-profile-picture.png')
 
-    def save(self, *args, **kwargs):
-        if self.picture == '':
-            self.picture.save(
-                'blank-profile-picture.png', 
-                File(open(os.path.join(settings.MEDIA_ROOT, 'blank-profile-picture.png'), 'rb'))
-            )
-        super().save(*args, **kwargs)
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
