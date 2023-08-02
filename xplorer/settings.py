@@ -32,8 +32,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost",
-                 "xplorer-p4-ad2c5b0b95ce.herokuapp.com", "8000-kpetrauskas92-xplorer-u3mwr48g6c.us2.codeanyapp.com"]
+ALLOWED_HOSTS = ["xplorer-p4-ad2c5b0b95ce.herokuapp.com", "xplorer" 
+                "8000-kpetrauskas92-xplorer-u3mwr48g6c.us2.codeanyapp.com"]
 
 SITE_ID = 1
 
