@@ -10,7 +10,7 @@ from .views import (
     AddFollower,
     RemoveFollower,
     AddLike,
-    AddDislike,
+    AddCommentLike,
     UserSearch
 )
 
@@ -21,7 +21,7 @@ urlpatterns = [
     path('post/delete/<int:pk>', PostDeleteView.as_view(), name='post-delete'),
     path('post/<int:post_pk>/comment/delete/<int:pk>/', CommentDeleteView.as_view(), name='comment-delete'),
     path('post/<int:pk>/like', AddLike.as_view(), name='like'),
-    path('post/<int:pk>/dislike', AddDislike.as_view(), name='dislike'),
+    path('post/<int:post_pk>/comment/<int:comment_pk>/like', AddCommentLike.as_view(), name='comment-like'),
     path('profile/<int:pk>/', ProfileView.as_view(), name='profile'),
     path('profile/edit/<int:pk>/', ProfileEditView.as_view(), name='profile-edit'),
     path('profile/<int:pk>/followers/add', AddFollower.as_view(), name='add-follower'),

@@ -35,15 +35,7 @@
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ request.path }}">
                     <button class="remove-default-btn" type="submit">
-                    <i class="far fa-thumbs-up"><span>{{ post.likes.all.count }}</span></i>
-                    </button>
-                </form>
-                <!-- Dislike button -->
-                <form method="POST" action="{% url 'dislike' post.pk %}">
-                    {% csrf_token %}
-                    <input type="hidden" name="next" value="{{ request.path }}">
-                    <button class="remove-default-btn" type="submit">
-                    <i class="far fa-thumbs-down"><span>{{ post.dislikes.all.count }}</span></i>
+                    <i class="far fa-regular fa-heart"> <span>{{ post.likes.all.count }}</span></i>
                     </button>
                 </form>
             </div>
@@ -81,6 +73,16 @@
                     {% endif %}
                 </p>
                 <p>{{ comment.comment }}</p>
+                <div class="d-flex flex-row">
+                    <!-- Likes button -->
+                    <form method="POST" action="{% url 'comment-like' post.pk comment.pk %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.path }}">
+                        <button class="remove-default-btn" type="submit">
+                        <i class="far fa-regular fa-heart"> <span>{{ comment.likes.all.count }}</span></i>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
         {% endfor %}

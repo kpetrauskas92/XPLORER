@@ -51,15 +51,7 @@
                         {% csrf_token %}
                         <input type="hidden" name="next" value="{{ request.path }}">
                         <button class="remove-default-btn" type="submit">
-                        <i class="far fa-thumbs-up"><span>{{ latest_user_post.likes.all.count }}</span></i>
-                        </button>
-                    </form>
-                    <!-- Dislike button -->
-                    <form method="POST" action="{% url 'dislike' latest_user_post.pk %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="next" value="{{ request.path }}">
-                        <button class="remove-default-btn" type="submit">
-                        <i class="far fa-thumbs-down"><span>{{ latest_user_post.dislikes.all.count }}</span></i>
+                        <i class="far fa-regular fa-heart"> <span>{{ latest_user_post.likes.all.count }}</span></i>
                         </button>
                     </form>
                 </div>
@@ -99,15 +91,7 @@
                         {% csrf_token %}
                         <input type="hidden" name="next" value="{{ request.path }}">
                         <button class="remove-default-btn" type="submit">
-                        <i class="far fa-thumbs-up"><span>{{ post.likes.all.count }}</span></i>
-                        </button>
-                    </form>
-                    <!-- Dislike button -->
-                    <form method="POST" action="{% url 'dislike' post.pk %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="next" value="{{ request.path }}">
-                        <button class="remove-default-btn" type="submit">
-                        <i class="far fa-thumbs-down"><span>{{ post.dislikes.all.count }}</span></i>
+                        <i class="fa-regular fa-heart"> <span>{{ post.likes.all.count }}</span></i>
                         </button>
                     </form>
                 </div>
