@@ -30,6 +30,7 @@ class UserProfile(models.Model):
     bio = models.TextField(max_length=200, blank=True, null=True)
     birth_date = models.DateField(null=True, blank=True)
     location = models.CharField(max_length=50, blank=True, null=True)
+    # Revisit images
     picture = CloudinaryField('profile_image')
     followers = models.ManyToManyField(User, blank=True, related_name='followers')
 
