@@ -8,10 +8,14 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 import os
 
+
 class Post(models.Model):
     body = models.TextField()
     created_on = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    likes = models.ManyToManyField(User, blank=True, related_name='likes')
+    dislikes = models.ManyToManyField(User, blank=True, related_name='dislikes')
+
 
 class Comment(models.Model):
     comment = models.TextField()
@@ -34,6 +38,7 @@ class UserProfile(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
+
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
