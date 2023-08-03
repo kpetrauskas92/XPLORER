@@ -31,7 +31,7 @@ class UserProfile(models.Model):
     birth_date = models.DateField(null=True, blank=True)
     location = models.CharField(max_length=50, blank=True, null=True)
     # Revisit images
-    picture = CloudinaryField('profile_image')
+    picture = CloudinaryField('profile_image', default='user-default_acghod')
     followers = models.ManyToManyField(User, blank=True, related_name='followers')
 
 

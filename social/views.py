@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.db.models import Q
+from django.db.models import Q, Max
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
@@ -11,27 +11,60 @@ from django.views.generic.edit import UpdateView, DeleteView
 
 class PostListView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
-        posts = Post.objects.all().order_by('-created_on')
+        followed_profiles = UserProfile.objects.filter(followers__in=[request.user])
+        followed_users = [profile.user for profile in followed_profiles]
+        
+        # get the latest post from each followed user
+        posts = []
+        for user in followed_users:
+            latest_post = Post.objects.filter(author=user).order_by('-created_on').first()
+            if latest_post is not None:
+                posts.append(latest_post)
+
+        # sort the posts by creation time
+        posts.sort(key=lambda post: post.created_on, reverse=True)
+        
+        latest_user_post = Post.objects.filter(author=request.user).order_by('-created_on').first()
         form = PostForm()
         context = {
             'post_list': posts,
             'form': form,
+            'latest_user_post': latest_user_post,
         }
         return render(request, 'post_list.html', context)
     
     def post(self, request, *args, **kwargs):
-        posts = Post.objects.all().order_by('-created_on')
         form = PostForm(request.POST)
 
         if form.is_valid():
             new_post = form.save(commit=False)
             new_post.author = request.user
             new_post.save()
-            context = {
+
+        followed_profiles = UserProfile.objects.filter(followers__in=[request.user])
+        followed_users = [profile.user for profile in followed_profiles]
+        
+        # get the latest post from each followed user
+        posts = []
+        for user in followed_users:
+            latest_post = Post.objects.filter(author=user).order_by('-created_on').first()
+            if latest_post is not None:
+                posts.append(latest_post)
+
+        # sort the posts by creation time
+        posts.sort(key=lambda post: post.created_on, reverse=True)
+
+        latest_user_post = Post.objects.filter(author=request.user).order_by('-created_on').first()
+
+        context = {
             'post_list': posts,
             'form': form,
+            'latest_user_post': latest_user_post,
         }
+
         return render(request, 'post_list.html', context)
+
+
 
 
 class PostDetailView(LoginRequiredMixin, View):
