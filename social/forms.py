@@ -9,10 +9,11 @@ class PostForm(forms.ModelForm):
             'placeholder': 'Post your adventure...'
         })
     )
+
     
     class Meta:
         model = Post
-        fields = ['body']
+        fields = ['body', 'image']
 
 class CommentForm(forms.ModelForm):
     comment = forms.CharField(
