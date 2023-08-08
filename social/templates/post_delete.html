@@ -1,24 +1,45 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<!-- Main Content Container -->
 <div class="container">
-    <div class="row mt-5">
-        <div class="col-md-5 col-sm-6">
-           <a href="{% url 'post-detail' object.pk %}" class="btn btn-light">Back to Post</a>
+
+    <!-- Back Button Row -->
+    <div class="row justify-content-center mt-3">
+        <div class="col-12 col-md-5">
+
+            <!-- Back to Post Button -->
+            <a href="{% url 'post-detail' object.pk %}">
+                <button class="btn btn-dark w-100" aria-label="Go back to the post">
+                    <i class="fa-regular fa-circle-left" style="color: white;" aria-hidden="true"></i> Back to Post
+                </button>
+            </a>
+
         </div>
     </div>
+
+    <!-- Delete Confirmation Row -->
     <div class="row justify-content-center mt-3 mb-5">
         <div class="col-md-5 col-sm-12">
-           <form method="POST">
+
+            <!-- Delete Confirmation Form -->
+            <form method="POST">
+                
                 {% csrf_token %}
                 <h5>Are you sure?</h5>
-                <p>Deleting post can not be undone!</p>
+                <p>Deleting post cannot be undone!</p>
+            
+                <!-- Delete Button Container -->
                 <div class="d-grid gap-2">
-                    <button class="btn btn-danger mt-3">Delete</button>
+                    <button class="btn btn-danger mt-3" aria-label="Confirm deletion of the post">Delete</button>
                 </div>
-           </form> 
+
+            </form>
+
         </div>
     </div>
     
 </div>
+
 {% endblock content %}

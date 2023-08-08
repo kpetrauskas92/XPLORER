@@ -10,10 +10,11 @@ from django.views.generic.edit import UpdateView, DeleteView
 
 
 class PostListView(LoginRequiredMixin, View):
-    def get(self, request, *args, **kwargs):
-        followed_profiles = UserProfile.objects.filter(followers__in=[request.user])
+
+    def get_followed_users_posts(self, user):
+        followed_profiles = UserProfile.objects.filter(followers__in=[user])
         followed_users = [profile.user for profile in followed_profiles]
-        
+
         # get the latest post from each followed user
         posts = []
         for user in followed_users:
@@ -23,16 +24,17 @@ class PostListView(LoginRequiredMixin, View):
 
         # sort the posts by creation time
         posts.sort(key=lambda post: post.created_on, reverse=True)
-        
-        latest_user_post = Post.objects.filter(author=request.user).order_by('-created_on').first()
+        return posts
+
+    def get(self, request, *args, **kwargs):
+        posts = self.get_followed_users_posts(request.user)
         form = PostForm()
         context = {
             'post_list': posts,
             'form': form,
-            'latest_user_post': latest_user_post,
         }
         return render(request, 'post_list.html', context)
-    
+
     def post(self, request, *args, **kwargs):
         form = PostForm(request.POST, request.FILES)
 
@@ -40,31 +42,15 @@ class PostListView(LoginRequiredMixin, View):
             new_post = form.save(commit=False)
             new_post.author = request.user
             new_post.save()
+            return redirect('post-list')
 
-        followed_profiles = UserProfile.objects.filter(followers__in=[request.user])
-        followed_users = [profile.user for profile in followed_profiles]
-        
-        # get the latest post from each followed user
-        posts = []
-        for user in followed_users:
-            latest_post = Post.objects.filter(author=user).order_by('-created_on').first()
-            if latest_post is not None:
-                posts.append(latest_post)
-
-        # sort the posts by creation time
-        posts.sort(key=lambda post: post.created_on, reverse=True)
-
-        latest_user_post = Post.objects.filter(author=request.user).order_by('-created_on').first()
-
+        # If the form isn't valid, render the page with the form and posts again
+        posts = self.get_followed_users_posts(request.user)
         context = {
             'post_list': posts,
             'form': form,
-            'latest_user_post': latest_user_post,
         }
-
         return render(request, 'post_list.html', context)
-
-
 
 
 class PostDetailView(LoginRequiredMixin, View):

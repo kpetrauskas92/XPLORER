@@ -2,28 +2,46 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+
+<!-- Main Content Container -->
 <div class="container">
-    <div class="row mt-5">
-        <div class="col-md-5 col-sm-6">
-           <a href="{% url 'profile' object.pk %}" class="btn btn-light">Back to Profile</a>
+
+    <!-- Navigation Section -->
+    <div class="row justify-content-center mt-3">
+        <div class="col-12 col-md-5">
+            <!-- Back to Profile Button -->
+            <a href="{% url 'profile' object.pk %}">
+                <button class="btn btn-dark w-100" aria-label="Return to profile">
+                    <i class="fa-regular fa-circle-left" style="color: white;" aria-hidden="true"></i> Back to Profile
+                </button>
+            </a>
         </div>
     </div>
+
+    <!-- Edit Profile Header -->
     <div class="row justify-content-center mt-3">
         <div class="col-md-5 col-sm-12">
            <h5>Edit Profile</h5> 
         </div>
     </div>
+
+    <!-- Edit Profile Form -->
     <div class="row justify-content-center mt-3 mb-5">
         <div class="col-md-5 col-sm-12">
-           <form method="POST" enctype="multipart/form-data">
+
+            <!-- Form to Edit User Profile -->
+            <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
+                
+                <!-- Submit Button -->
                 <div class="d-grid gap-2">
-                    <button class="btn btn-success mt-3">Submit</button>
+                    <button class="btn btn-success mt-3" aria-label="Submit profile changes">Submit</button>
                 </div>
-           </form> 
+            </form> 
         </div>
     </div>
     
 </div>
+
 {% endblock content %}

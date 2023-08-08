@@ -1,30 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container" >
+
+<!-- Main Content Container -->
+<div class="container">
+
+    <!-- Navigation Section -->
     <div class="row mt-5">
         <div class="col-md-5 col-sm-6">
-           <a href="{% url 'post-list' %}" class="btn btn-light">Back to Feed</a>
+            <!-- Back to Feed Button -->
+            <a href="{% url 'post-list' %}" class="btn btn-light" aria-label="Go back to the feed">Back to Feed</a>
         </div>
     </div>
-    {% for  profile in profile_list %}
+
+    <!-- Profiles Listing Section -->
+    {% for profile in profile_list %}
     <div class="row justify-content-center mt-3">
-        <div class="col-md5 col-sm-6 border-bottom position-relative">
+        <div class="col-md-5 col-sm-6 border-bottom position-relative">
+            <!-- Profile Picture and Link -->
             <div>
-                <a href="{% url 'profile' profile.pk %}">
-                    <img class="rounded-circle post-img" height="30" width="30" src="{{ profile.picture.url }}"/>
+                <a href="{% url 'profile' profile.pk %}" aria-label="View profile of {{ profile.user }}">
+                    <img class="rounded-circle post-img" height="40" width="40" src="{{ profile.picture.url }}" alt="Profile picture of {{ profile.user }}"/>
                 </a>
             </div>
+
+            <!-- Profile Username -->
             <p>
                 <a class="text-primary post-link" href="{% url 'profile' profile.pk %}">
                     {{ profile.user }}
                 </a>
             </p>
+
+            <!-- Profile Location (if available) -->
             {% if profile.location %}
             <p>
                 {{ profile.location }}
             </p>
             {% endif %}
+
+            <!-- Profile Followers Count -->
             <p>Followers: 
                 {{ profile.followers.all.count }}
             </p>
@@ -32,4 +46,5 @@
     </div>
     {% endfor %}
 </div>
+
 {% endblock content %}

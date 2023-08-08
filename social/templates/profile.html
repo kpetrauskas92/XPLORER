@@ -1,104 +1,144 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- Main Container -->
 <div class="container">
-    <div class="row mt-5">
-        <div class="col-md-3 col-sm-6">
-           <a href="{% url 'post-list' %}" class="btn btn-light">Back to Feed</a>
+
+    <!-- Back to Feed Button -->
+    <div class="row justify-content-center mt-3">
+        <div class="col-12 col-md-5">
+            <a href="{% url 'post-list' %}">
+                <button class="btn btn-dark w-100" aria-label="Back to the feed">
+                    <i class="fa-regular fa-circle-left" style="color: white;"></i> Back to Feed
+                </button>
+            </a>
         </div>
     </div>
+
+    <!-- Profile Card -->
     <div class="row justify-content-center mt-5">
-        <div class="card shadow-sm col-md-8 col-sm-12 border-bottom px-5 pt-3">
-            <img src="{{ profile.picture.url|default:'user-default_acghod' }}" 
-            class="rounded-circle" width="100" height="100" />
+        <div class="card shadow-sm col-12 col-md-5 border-bottom px-5 pt-3">
+            <!-- Profile Image -->
+            <img src="{{ profile.picture.url|default:'user-default_acghod' }}" alt="Profile picture" class="rounded-circle" width="100" height="100" />
 
+            <!-- Profile Name, Followers Count, and Edit Link -->
             {% if profile.name %}
-            <div class="py-1 d-flex align-items-center">
-                <h3 class="py-4">{{ profile.name }}</h3>
-                <span>
+            <div class="py-1">
+                <div class="d-flex align-items-center">
+                    <h3>{{ profile.name }}</h3>
                     {% if request.user == user %}
-                    <a href="{% url 'profile-edit' profile.pk %}" class="p-3 edit-color">
+                    <a href="{% url 'profile-edit' profile.pk %}" class="p-3 edit-color ml-auto" aria-label="Edit profile">
                         <i class="far fa-edit"></i>
-                    </a>                    
+                    </a>
                     {% endif %}
-                </span>
+                </div>
+                <div class="pb-3">
+                    <span class="followers-count">Followers: {{ number_of_followers }}</span>
+                </div>
             </div>
-                {% else %}
-            <div class="py-1 d-flex align-items-center">
-                <h3 class="py-4">{{ user.username }}</h3>
-                <span>
+            {% else %}
+            <div class="py-1">
+                <div class="d-flex align-items-center">
+                    <h3>{{ user.username }}</h3>
                     {% if request.user == user %}
-                    <a href="{% url 'profile-edit' profile.pk %}" class="p-3 edit-color">
+                    <a href="{% url 'profile-edit' profile.pk %}" class="p-3 edit-color ml-auto" aria-label="Edit profile">
                         <i class="far fa-edit"></i>
-                    </a>                    
+                    </a>
                     {% endif %}
-                </span>
+                </div>
+                <div class="pb-3">
+                    <span class="followers-count">Followers: {{ number_of_followers }}</span>
+                </div>
             </div>
-                {% endif %}
+            {% endif %}
 
+            <div class="profile-detail py-1 pb-3">
+            <!-- Profile Location -->
             {% if profile.location %}
-            <h6 class="py-1">{{ profile.location }}</h6>
+            <div class="d-flex align-items-center py-1">
+                <i class="fas fa-map-marker-alt mr-2"></i>
+                <h6>{{ profile.location }}</h6>
+            </div>
             {% endif %}
 
+            <!-- Profile Birth Date -->
             {% if profile.birth_date %}
-            <p class="py-1">{{ profile.birth_date }}</p>
+            <div class="d-flex align-items-center py-1">
+                <i class="fas fa-birthday-cake mr-2"></i> 
+                <p>{{ profile.birth_date }}</p>
+            </div>
             {% endif %}
 
+            <!-- Profile Bio -->
             {% if profile.bio %}
-            <p class="py-1">{{ profile.bio }}</p>
+            <div class="d-flex align-items-center py-1">
+                <i class="fas fa-user mr-2"></i>
+                <p>{{ profile.bio }}</p>
+            </div>
             {% endif %}
+            </div>
 
-            <div class="mb-3">
-                <p>Followers: {{ number_of_followers }}</p>
-                {% if user == request.user %}
-                {% else %}
+            <!-- Followers Count and Follow/Unfollow Button -->
+            <div class="followers-actions mb-3">
+                {% if user != request.user %}
                 {% if is_following %}
-                <form method="POST" action="{% url 'remove-follower' profile.pk %}">
+                <form method="POST" action="{% url 'remove-follower' profile.pk %}" class="follow-form">
                     {% csrf_token %}
-                    <button class="btn btn-outline-danger" type="submit">Unfollow</button>
+                    <button class="btn follow-btn unfollow-btn" type="submit" aria-label="Unfollow user">Unfollow</button>
                 </form>
-                {% else%}
-                <form method="POST" action="{% url 'add-follower' profile.pk %}">
+                {% else %}
+                <form method="POST" action="{% url 'add-follower' profile.pk %}" class="follow-form">
                     {% csrf_token %}
-                    <button class="btn btn-outline-success" type="submit">Follow</button>
+                    <button class="btn follow-btn" type="submit" aria-label="Follow user">Follow</button>
                 </form>
                 {% endif %}
                 {% endif %}
             </div>
-
         </div>
     </div>
 
+    <!-- User Posts -->
     {% for post in posts %}
     <div class="row justify-content-center mt-5">
-        <div class="col-md-8 col-sm-12 border-bottom">
-            <div>
-                <a href="{% url 'profile' post.author.profile.pk %}">
-                    <img class="rounded-circle post-img" height="30" width="30" src="{{ post.author.profile.picture.url }}"/>
-                </a>
-                <p class="post-text">
-                    <a class="text-primary post-link" 
-                    href="{% url 'profile' post.author.profile.pk %}">{{ post.author }}</a>
-                    {{ post.created_on }}
-                </p>
+        <div class="col-12 col-md-5 border-bottom post-container">
+
+            <!-- Post Time (Removing the author since it's the user's profile) -->
+            <div class="d-flex align-items-center justify-content-between">
+                <span class="post-text">{{ post.created_on }}</span>
+                <!-- Edit/Delete Options (Only if it's the user's own profile) -->
+            {% if post.author == request.user %}
+                <div>
+                    <a href="{% url 'post-edit' post.pk %}" class="edit-color mr-2"><i class="far fa-edit"></i></a>
+                    <a href="{% url 'post-delete' post.pk %}" class="edit-color"><i class="fas fa-trash"></i></a>
+                </div>
+            {% endif %}
             </div>
+
+            <!-- Post Content -->
             <div class="position-relative">
                 {% if post.image %}
-                    <img src="{{ post.image.url }}" class="post-image"/>
-                    {% endif %}
+                <img src="{{ post.image.url }}" alt="Post image by {{ post.author }}" class="post-image"/>
+                {% endif %}
                 <p>{{ post.body }}</p>
-                <a href="{% url 'post-detail' post.pk %}" class="stretched-link"></a>
+                <a href="{% url 'post-detail' post.pk %}" class="stretched-link" aria-label="View post details"></a>
             </div>
+
+            <!-- Post Like Button -->
             <div class="d-flex flex-row">
-                <!-- Likes button -->
                 <form method="POST" action="{% url 'like' post.pk %}">
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ request.path }}">
-                    <button class="remove-default-btn" type="submit">
-                    <i class="far fa-thumbs-up"><span>{{ post.likes.all.count }}</span></i>
+                    <button class="remove-default-btn" type="submit" aria-label="Like post">
+                        <i class="fa-regular fa-heart"><span>{{ post.likes.all.count }}</span></i>
                     </button>
                 </form>
             </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-5">
+            <p>You have not made any posts yet. Share something...</p>
         </div>
     </div>
     {% endfor %}

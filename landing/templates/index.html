@@ -4,25 +4,37 @@
 
 {% block content %}
 
-
+<!-- Hero Section with Background Video -->
 <section class="d-flex align-items-center video-container">
+
+    <!-- Background Video -->
     <video autoplay muted loop id="myVideo">
         <source src="https://res.cloudinary.com/doz1igebk/video/upload/v1691446277/hero-vid_wxyaso.mp4" type="video/mp4">
+        <!-- Fallback text in case the video doesn't load -->
+        Your browser does not support the video.
     </video>
+
+    <!-- Overlay Content on Video -->
     <div class="container position-absolute d-flex flex-column justify-content-center align-items-center">
+        
+        <!-- Main Heading and Description -->
         <div class="col-md-10 col-sm-12 text-center">
             <h1 class="display-2 hero-text">Xplore the social network</h1>
             <p class="mt-3 lead hero-text">Unleash Your Inner Adventurer, Share Your Journeys!</p>
+            
+            <!-- Login Button -->
             <div class="d-flex justify-content-center mt-4">
                 <a href="{% url 'account_login' %}" class="btn btn-outline-light mr-2">Login</a>
             </div>
+            
+            <!-- Register Button -->
             <div class="d-flex justify-content-center mt-1">
                 <a href="{% url 'account_signup' %}" class="btn btn-outline-light mr-2">Register</a>
             </div>
         </div>
-</div>
-
+    </div>
 </section>
 
-{% endblock content %}
+{% endblock %}
+
 

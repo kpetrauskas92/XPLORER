@@ -1,103 +1,86 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block content %}
 <div class="container">
+    <!-- Add Post Button -->
     <div class="row justify-content-center mt-3">
-        <div class="col-md-5 col-sm-12">
-           <h5>Add a Post</h5> 
+        <div class="col-12 col-md-5">
+            <button class="btn btn-dark w-100" onclick="togglePostForm('postFormRow')" aria-label="Add a new post">
+                <i class="fa-solid fa-circle-plus" style="color: white;"></i> Add a Post
+            </button>
         </div>
     </div>
-    <div class="row justify-content-center mt-3 mb-5">
-        <div class="col-md-5 col-sm-12">
-           <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form | crispy }}
-                <div class="d-grid gap-2">
-                    <button class="btn btn-success mt-3">Post</button>
-                </div>
-           </form> 
-        </div>
-    </div>
-    <div class="row justify-content-center mt-3 ">
-        <div class="col-md-5 col-sm-12 position-relative">
-            <span class="badge bg-info text-dark p-2">My Posts:</span>
-        </div>
-    </div>
-    {% if latest_user_post %}
-    <div class="row justify-content-center mt-3">
-        <div class="col-md-5 col-sm-12 border-bottom position-relative">
-            <div class="col-md-8 col-sm-12 border-bottom">
-                <div>
-                    <a href="{% url 'profile' latest_user_post.author.profile.pk %}">
-                        <img class="rounded-circle post-img" height="30" width="30" src="{{ latest_user_post.author.profile.picture.url }}"/>
-                    </a>
-                    <p class="post-text">
-                        <a class="text-primary post-link" 
-                        href="{% url 'profile' latest_user_post.author.profile.pk %}">{{ latest_user_post.author }}</a>
-                        {{ latest_user_post.created_on }}
-                    </p>
-                </div>
-                <div class="position-relative">
-                    {% if latest_user_post.image %}
-                        <img src="{{ latest_user_post.image.url }}" class="post-image"/>
-                    {% endif %}
-                    <p>{{ latest_user_post.body }}</p>
-                    <a href="{% url 'post-detail' latest_user_post.pk %}" class="stretched-link"></a>
-                </div>
-                <div class="d-flex flex-row">
-                    <!-- Likes button -->
-                    <form method="POST" action="{% url 'like' latest_user_post.pk %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="next" value="{{ request.path }}">
-                        <button class="remove-default-btn" type="submit">
-                        <i class="far fa-regular fa-heart"> <span>{{ latest_user_post.likes.all.count }}</span></i>
-                        </button>
-                    </form>
-                </div>
+
+    <!-- Post Form -->
+    <div id="postFormRow" class="d-none">
+        <div class="row justify-content-center mt-3 mb-5">
+            <div class="col-12 col-md-5 post-form-container">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="d-grid gap-2">
+                        <button class="btn post-form-button mt-3" aria-label="Submit post">Post</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    {% endif %}
-    <div class="row justify-content-center mt-3">
-        <div class="col-md-5 col-sm-12 position-relative">
-            <span class="badge bg-info text-dark p-2">Newsfeed:</span>
-        </div>
-    </div>
+
+    <!-- Newsfeed Section -->
     {% for post in post_list %}
+    <aside>
+        <div class="row justify-content-center mt-3">
+            <div class="col-12 col-md-5 position-relative">
+                <span class="badge bg-info text-dark p-2">Newsfeed:</span>
+            </div>
+        </div>
+    </aside>
+    
+    <!-- Display Newsfeed Posts -->
     <div class="row justify-content-center mt-3">
-        <div class="col-md-5 col-sm-12 border-bottom position-relative">
-            <div class="col-md-8 col-sm-12 border-bottom">
-                <div>
+        <div class="col-12 col-md-5 position-relative">
+            <div class="post-container">
+                <div class="d-flex align-items-center">
                     <a href="{% url 'profile' post.author.profile.pk %}">
-                        <img class="rounded-circle post-img" height="30" width="30" src="{{ post.author.profile.picture.url }}"/>
+                        <img class="rounded-circle post-img mr-2" height="40" width="40" src="{{ post.author.profile.picture.url }}" alt="{{ post.author }}'s profile picture"/>
                     </a>
-                    <p class="post-text">
-                        <a class="text-primary post-link" 
-                        href="{% url 'profile' post.author.profile.pk %}">{{ post.author }}</a>
-                        {{ post.created_on }}
-                    </p>
+                    <span class="post-author pe-1">
+                        <a class="text-primary" href="{% url 'profile' post.author.profile.pk %}">{{ post.author }}</a>
+                    </span>
+                    <span class="ml-2">{{ post.created_on }}</span>
                 </div>
-                <div class="position-relative">
-                    {% if post.image %}
-                        <img src="{{ post.image.url }}" class="post-image"/>
-                    {% endif %}
-                    <p>{{ post.body }}</p>
-                    <a href="{% url 'post-detail' post.pk %}" class="stretched-link"></a>
-                </div>
-                <div class="d-flex flex-row">
+                    <div class="post-body mt-2">
+                        <a href="{% url 'post-detail' post.pk %}">
+                        {% if post.image %}
+                        
+                            <img src="{{ post.image.url }}" class="post-image img-fluid" alt="Image for post by {{ post.author }}"/>
+                        
+                        {% endif %}
+                        <p>{{ post.body }}</p>
+                    </a>
+                    </div>
+                <div class="mt-2">
                     <!-- Likes button -->
                     <form method="POST" action="{% url 'like' post.pk %}">
                         {% csrf_token %}
                         <input type="hidden" name="next" value="{{ request.path }}">
-                        <button class="remove-default-btn" type="submit">
-                        <i class="fa-regular fa-heart"> <span>{{ post.likes.all.count }}</span></i>
+                        <button class="like-btn" type="submit" aria-label="Like this post">
+                            <i class="fa-regular fa-heart"> <span>{{ post.likes.all.count }}</span></i>
                         </button>
                     </form>
                 </div>
             </div>
         </div>
+    </div>    
+    {% empty %}
+    <div class="row justify-content-center mt-3">
+        <div class="col-12 col-md-5">
+            <p>No posts available. Follow someone...</p>
+        </div>
     </div>
     {% endfor %}
 </div>
+<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 {% endblock content %}
