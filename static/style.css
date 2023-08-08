@@ -1,6 +1,6 @@
-/* ==============================
+/* =====================================
    GLOBAL STYLES
-   ============================== */
+   ===================================== */
 
 /* Resets and utility classes */
 .remove-default-btn {
@@ -17,13 +17,13 @@
     color: #333;
 }
 
+/* Form control & Input group styles */
 .form-control-nav, .input-group-text {
     border: none;
     border-radius: 5px;
     box-shadow: none;
     transition: box-shadow 0.2s ease-in-out;
 }
-
 
 .form-control-nav {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
@@ -34,17 +34,15 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-
 .input-group-text {
     background-color: transparent;
 }
 
-
+/* Custom dropdown styles */
 .custom-dropdown {
     position: relative;
     display: inline-block;
 }
-
 
 .dropdown-content {
     display: none;
@@ -80,10 +78,9 @@
     color: #333;
 }
 
-
-/* ==============================
-   VIDEO CONTAINER
-   ============================== */
+/* =====================================
+   VIDEO CONTAINER STYLES
+   ===================================== */
 
 .video-container {
     position: relative;
@@ -113,9 +110,9 @@
     color: white;
 }
 
-/* ==============================
+/* =====================================
    FORM STYLES
-   ============================== */
+   ===================================== */
 
 .post-form-container {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -134,9 +131,9 @@
     background: linear-gradient(90deg, rgba(72, 153, 236, 1) 0%, rgba(62, 193, 238, 1) 100%);
 }
 
-/* ==============================
-   POST CONTAINER
-   ============================== */
+/* =====================================
+   POST CONTAINER STYLES
+   ===================================== */
 
 .post-container {
     padding: 15px;
@@ -172,9 +169,9 @@
     margin: 15px 0;
 }
 
-/* ==============================
-   LIKE BUTTON
-   ============================== */
+/* =====================================
+   LIKE BUTTON STYLES
+   ===================================== */
 
 .like-btn {
     background-color: transparent;
@@ -190,17 +187,17 @@
     color: #ff4566;
 }
 
-/* ==============================
-   COMMENTS
-   ============================== */
+/* =====================================
+   COMMENTS STYLES
+   ===================================== */
 
 .child-comment {
     margin-left: 2rem;
 }
 
-/* ==============================
-   FOLLOWERS & PROFILE
-   ============================== */
+/* =====================================
+   FOLLOWERS & PROFILE STYLES
+   ===================================== */
 
 .followers-actions {
     display: flex;
@@ -256,4 +253,46 @@
 .profile-detail h6, .profile-detail p {
     margin: 0;
     line-height: 1.5;
+}
+
+.user-profile-card {
+    background-color: #ffffff;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.user-image-and-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.user-profile-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;  
+}
+
+.icon-text {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.user-profile-info p {
+    margin: 0;
+}
+
+.user-profile-info a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
 }

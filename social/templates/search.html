@@ -3,45 +3,59 @@
 {% block content %}
 
 <!-- Main Content Container -->
-<div class="container">
+<div class="user-search-container">
 
-    <!-- Navigation Section -->
-    <div class="row mt-5">
-        <div class="col-md-5 col-sm-6">
-            <!-- Back to Feed Button -->
-            <a href="{% url 'post-list' %}" class="btn btn-light" aria-label="Go back to the feed">Back to Feed</a>
+    <!-- Back Button Row -->
+    <div class="row justify-content-center mt-3">
+        <div class="col-12 col-md-5">
+            <a href="{% url 'post-list' %}">
+            <button class="btn btn-dark w-100" aria-label="Add a new post">
+                <i class="fa-regular fa-circle-left" style="color: white;"></i> Back to Feed
+            </button>
+            </a>
         </div>
     </div>
 
     <!-- Profiles Listing Section -->
     {% for profile in profile_list %}
-    <div class="row justify-content-center mt-3">
-        <div class="col-md-5 col-sm-6 border-bottom position-relative">
-            <!-- Profile Picture and Link -->
-            <div>
+    <div class="row justify-content-center">
+        <div class="col-md-5 col-sm-6 user-profile-card">
+
+            <!-- User Image and Name -->
+            <div class="user-image-and-name">
+                <!-- Profile Picture and Link -->
                 <a href="{% url 'profile' profile.pk %}" aria-label="View profile of {{ profile.user }}">
-                    <img class="rounded-circle post-img" height="40" width="40" src="{{ profile.picture.url }}" alt="Profile picture of {{ profile.user }}"/>
+                    <img class="rounded-circle user-profile-image" height="60" width="60" src="{{ profile.picture.url }}" alt="Profile picture of {{ profile.user }}"/>
                 </a>
+
+                <!-- Profile Username -->
+                <p>
+                    <a href="{% url 'profile' profile.pk %}">
+                        {{ profile.user }}
+                    </a>
+                </p>
             </div>
 
-            <!-- Profile Username -->
-            <p>
-                <a class="text-primary post-link" href="{% url 'profile' profile.pk %}">
-                    {{ profile.user }}
+            <!-- Profile Info -->
+            <div class="user-profile-info">
+                <!-- Profile Followers Count -->
+                <p class="icon-text">
+                    <i class="fa-solid fa-users"></i>
+                    Followers: <strong>{{ profile.followers.all.count }}</strong>
+                </p>
+
+                <!-- Profile Location (if available) -->
+                {% if profile.location %}
+                <p class="icon-text">
+                    <i class="fa-solid fa-location-dot"></i>
+                    {{ profile.location }}
+                </p>
+                {% endif %}
+                <!-- View Profile Button -->
+                <a href="{% url 'profile' profile.pk %}" class="btn btn-dark" style="color: #fff;">
+                    View Profile
                 </a>
-            </p>
-
-            <!-- Profile Location (if available) -->
-            {% if profile.location %}
-            <p>
-                {{ profile.location }}
-            </p>
-            {% endif %}
-
-            <!-- Profile Followers Count -->
-            <p>Followers: 
-                {{ profile.followers.all.count }}
-            </p>
+            </div>
         </div>
     </div>
     {% endfor %}
