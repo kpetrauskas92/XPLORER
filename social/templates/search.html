@@ -5,7 +5,7 @@
 <!-- Main Content Container -->
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-sm-9 col-md-7 col-lg-5 position-relative">
+        <div class="col-sm-9 col-md-8 col-lg-6 position-relative">
 
     <!-- Back Button Row -->
     <div class="mt-3">
@@ -28,7 +28,7 @@
                 </a>
 
                 <!-- Profile Username -->
-                <p>
+                <p style="margin: 0;">
                     <a href="{% url 'profile' profile.pk %}">
                         {{ profile.user }}
                     </a>
@@ -42,7 +42,6 @@
                     <i class="fa-solid fa-users"></i>
                     Followers: <strong>{{ profile.followers.all.count }}</strong>
                 </p>
-
                 <!-- Profile Location (if available) -->
                 {% if profile.location %}
                 <p class="icon-text">
@@ -51,8 +50,8 @@
                 </p>
                 {% endif %}
                 <!-- View Profile Button -->
-                <a href="{% url 'profile' profile.pk %}" class="btn btn-dark" style="color: #fff;">
-                    View Profile
+                <a href="{% url 'profile' profile.pk %}">
+                    View
                 </a>
             </div>
         </div>

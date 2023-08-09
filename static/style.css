@@ -300,7 +300,7 @@ footer i:hover {
 
 .user-image-and-name {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     width: 100%;
     gap: 10px;
@@ -309,7 +309,11 @@ footer i:hover {
 .user-profile-info {
     display: flex;
     justify-content: space-between;
-    width: 100%;  
+    width: 100%;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .icon-text {
