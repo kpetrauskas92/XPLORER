@@ -36,6 +36,11 @@ footer i:hover {
 }
 
 /* Form control & Input group styles */
+
+.form-group {
+    margin-bottom: 0.8rem;
+}
+
 .form-control-nav, .input-group-text {
     border: none;
     border-radius: 5px;
