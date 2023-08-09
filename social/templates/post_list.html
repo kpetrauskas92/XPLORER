@@ -4,7 +4,7 @@
 
 {% block grid_content %}
     <!-- Add Post Button -->
-    <div class="mt-3">
+    <div class="mt-4">
             <button class="btn btn-dark w-100" onclick="togglePostForm('postFormRow')" aria-label="Add a new post">
                 <i class="fa-solid fa-circle-plus" style="color: white;"></i> Add a Post
             </button>
@@ -29,7 +29,7 @@
     {% if post_list %}
     <aside>
         <div class="mt-3">
-                <span class="badge bg-info text-dark p-2">Newsfeed:</span>
+                <span class="badge text-dark p-2">Newsfeed:</span>
         </div>
     </aside>
     {% endif %}
@@ -72,7 +72,7 @@
     {% empty %}
     <div class="mt-3">
             <p>No posts available. Follow someone...</p>
-            <p>You can find users on search</p>
+            <p>You can find users in search</p>
     </div>
     {% endfor %}
 <script type="text/javascript" src="{% static 'js/script.js' %}"></script>

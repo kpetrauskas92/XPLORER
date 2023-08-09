@@ -3,6 +3,24 @@
    ===================================== */
 
 /* Resets and utility classes */
+body {
+    background-color: #e4e4e4;
+}
+
+footer {
+    background-color: #fff;
+}
+
+footer i {
+    font-size: large;
+    color: #0d7136;
+}
+
+footer i:hover {
+    font-size: x-large;
+    color: #2261e9;
+}
+
 .remove-default-btn {
     border: none;
     background-color: transparent;
@@ -33,6 +51,11 @@
     outline: none;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
+
+.content-wrapper {
+    background-color: #fff;
+}
+
 
 .input-group-text {
     background-color: transparent;
@@ -137,7 +160,7 @@
 
 .post-container {
     padding: 15px;
-    background-color: rgb(247, 247, 247);
+    background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
     margin-bottom: 20px;
@@ -180,7 +203,7 @@
 }
 
 .like-btn .fa-heart {
-    color: #d1d1d1;
+    color: #333;
 }
 
 .like-btn.liked .fa-heart {
