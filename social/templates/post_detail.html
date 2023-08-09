@@ -1,26 +1,21 @@
-{% extends 'base.html' %}
+{% extends 'base_grid.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
 
-{% block content %}
-
-<!-- Main Container -->
-<div class="container">
+{% block grid_content %}
 
     <!-- Back Button Row -->
-    <div class="row justify-content-center mt-3">
-        <div class="col-12 col-md-5">
-            <a href="{% url 'post-list' %}">
-            <button class="btn btn-dark w-100" aria-label="Add a new post">
-                <i class="fa-regular fa-circle-left" style="color: white;"></i> Back to Feed
-            </button>
-            </a>
-        </div>
+    <div class="mt-3">
+        <a href="{% url 'post-list' %}">
+        <button class="btn btn-dark w-100" aria-label="Add a new post">
+            <i class="fa-regular fa-circle-left" style="color: white;"></i> Back to Feed
+        </button>
+        </a>
     </div>
 
     <!-- Post Display Section -->
-    <div class="row justify-content-center mt-3">
-        <div class="col-12 col-md-5 border-bottom post-container">
+    <div class="mt-3">
+        <div class="border-bottom post-container">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
                     <a href="{% url 'profile' post.author.profile.pk %}">
@@ -58,8 +53,7 @@
     </div>
 
         <!-- Comment Input Section -->
-        <div class="row justify-content-center mt-3 mb-5">
-            <div class="col-12 col-md-5">
+        <div class="mt-3 mb-5">
             <form method="POST">
                     {% csrf_token %}
                     {{ form | crispy }}
@@ -67,13 +61,12 @@
                         <button class="btn btn-success mt-3">Comment</button>
                     </div>
             </form> 
-        </div>
 
         <!-- Comments -->
         {% for comment in comments %}
             {% if comment.is_parent %}
-                <div class="row justify-content-center mt-3 mb-5">
-                    <div class="col-12 col-md-5 border-bottom post-container">
+                <div class="mt-3 mb-5">
+                    <div class="border-bottom post-container">
                         <!-- Comment author, date, and delete link -->
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center">
@@ -109,8 +102,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-center mt-3 mb-5 d-none" id="{{ comment.pk }}">
-                    <div class="col-12 col-md-5">
+                <div class="mt-3 mb-5 d-none" id="{{ comment.pk }}">
+            
                         <form method="POST" action="{% url 'comment-reply' post.pk comment.pk %}">
                             {% csrf_token %}
                             {{ form | crispy }}
@@ -118,12 +111,11 @@
                                 <button class="btn btn-success mt-3">Comment</button>
                             </div>
                         </form> 
-                    </div>
 
                     <!-- Child Comments -->
                     {% for child_comment in comment.children %}
-                        <div class="row justify-content-center mt-3 mb-5 child-comment">
-                            <div class="col-12 col-md-5 border-bottom">
+                        <div class="mt-3 mb-5 child-comment">
+                            <div class="border-bottom">
                                 <!-- Child comment author, date, and delete link -->
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="d-flex align-items-center">
@@ -148,6 +140,5 @@
                 {% endif %}
             {% endfor %}
     </div>
-</div>
 <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
-{% endblock content %}
+{% endblock grid_content %}

@@ -3,31 +3,24 @@
 
 {% block content %}
 
-<!-- Main Content Container -->
-<div class="container">
 
     <!-- Navigation Section -->
-    <div class="row justify-content-center mt-3">
-        <div class="col-12 col-md-5">
+    <div class="mt-3">
             <!-- Back to Profile Button -->
             <a href="{% url 'profile' object.pk %}">
                 <button class="btn btn-dark w-100" aria-label="Return to profile">
                     <i class="fa-regular fa-circle-left" style="color: white;" aria-hidden="true"></i> Back to Profile
                 </button>
             </a>
-        </div>
     </div>
 
     <!-- Edit Profile Header -->
-    <div class="row justify-content-center mt-3">
-        <div class="col-md-5 col-sm-12">
+    <div class="mt-3">
            <h5>Edit Profile</h5> 
-        </div>
     </div>
 
     <!-- Edit Profile Form -->
-    <div class="row justify-content-center mt-3 mb-5">
-        <div class="col-md-5 col-sm-12">
+    <div class="mt-3 mb-5">
 
             <!-- Form to Edit User Profile -->
             <form method="POST" enctype="multipart/form-data">
@@ -38,8 +31,7 @@
                 <div class="d-grid gap-2">
                     <button class="btn btn-success mt-3" aria-label="Submit profile changes">Submit</button>
                 </div>
-            </form> 
-        </div>
+            </form>
     </div>
     
 </div>
