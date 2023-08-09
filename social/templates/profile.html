@@ -12,20 +12,21 @@
                 </button>
             </a>
     </div>
+    
 
     <!-- Profile Card -->
     <div class="mt-5">
-        <div class="card shadow-sm border-bottom px-5 pt-3">
-            <!-- Profile Image -->
-            <img src="{{ profile.picture.url|default:'user-default_acghod' }}" alt="Profile picture" class="rounded-circle" width="100" height="100" />
-
-            <!-- Profile Name, Followers Count, and Edit Link -->
-            {% if profile.name %}
-            <div class="py-1">
-                <div class="d-flex align-items-center">
-                    <h3>{{ profile.name }}</h3>
+        <div class="card shadow-sm border-bottom px-5 pt-3 text-center">
+            <div class="post-container-light">
+                <!-- Profile Image -->
+                <img src="{{ profile.picture.url|default:'user-default_acghod' }}" alt="Profile picture" class="rounded-circle mx-auto d-block" width="100" height="100" />
+            
+                <!-- Profile Name, Followers Count, and Edit Link -->
+                {% if profile.name %}
+                <div class="py-1 d-flex justify-content-center align-items-center">
+                    <h4>{{ profile.name }}</h4>
                     {% if request.user == user %}
-                    <a href="{% url 'profile-edit' profile.pk %}" class="p-3 edit-color ml-auto" aria-label="Edit profile">
+                    <a href="{% url 'profile-edit' profile.pk %}" class="p-3 edit-color ml-3" aria-label="Edit profile">
                         <i class="far fa-edit"></i>
                     </a>
                     {% endif %}
@@ -33,43 +34,41 @@
                 <div class="pb-3">
                     <span class="followers-count">Followers: {{ number_of_followers }}</span>
                 </div>
+                {% else %}
+                <div class="py-1 d-flex justify-content-center align-items-center">
+                    <h3>{{ user.username }}</h4>
+                    {% if request.user == user %}
+                    <a href="{% url 'profile-edit' profile.pk %}" class="p-3 edit-color ml-3" aria-label="Edit profile">
+                        <i class="far fa-edit"></i>
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="pb-3">
+                    <span class="followers-count">Followers: {{ number_of_followers }}</span>
+                </div>
+                {% endif %}
             </div>
-            {% else %}
-            <div class="py-1">
-                <div class="d-flex align-items-center">
-                    <h3>{{ user.username }}</h3>
-                    {% if request.user == user %}
-                    <a href="{% url 'profile-edit' profile.pk %}" class="p-3 edit-color ml-auto" aria-label="Edit profile">
-                        <i class="far fa-edit"></i>
-                    </a>
-                    {% endif %}
-                </div>
-                <div class="pb-3">
-                    <span class="followers-count">Followers: {{ number_of_followers }}</span>
-                </div>
+
+            <!-- Profile Birth Date -->
+            {% if profile.birth_date %}
+            <div class="d-flex justify-content-center align-items-center py-1">
+                <i class="fas fa-birthday-cake mr-2"></i> 
+                <p>{{ profile.birth_date }}</p>
             </div>
             {% endif %}
 
             <div class="profile-detail py-1 pb-3">
             <!-- Profile Location -->
             {% if profile.location %}
-            <div class="d-flex align-items-center py-1">
+            <div class="d-flex justify-content-center align-items-center py-1">
                 <i class="fas fa-map-marker-alt mr-2"></i>
                 <h6>{{ profile.location }}</h6>
             </div>
             {% endif %}
 
-            <!-- Profile Birth Date -->
-            {% if profile.birth_date %}
-            <div class="d-flex align-items-center py-1">
-                <i class="fas fa-birthday-cake mr-2"></i> 
-                <p>{{ profile.birth_date }}</p>
-            </div>
-            {% endif %}
-
             <!-- Profile Bio -->
             {% if profile.bio %}
-            <div class="d-flex align-items-center py-1">
+            <div class="d-flex justify-content-center align-items-center py-1">
                 <i class="fas fa-user mr-2"></i>
                 <p>{{ profile.bio }}</p>
             </div>
@@ -77,7 +76,7 @@
             </div>
 
             <!-- Followers Count and Follow/Unfollow Button -->
-            <div class="followers-actions mb-3">
+            <div class="followers-actions mb-3 d-flex justify-content-center">
                 {% if user != request.user %}
                 {% if is_following %}
                 <form method="POST" action="{% url 'remove-follower' profile.pk %}" class="follow-form">
@@ -97,7 +96,7 @@
 
     <!-- User Posts -->
     {% for post in posts %}
-    <div class="mt-5">
+    <div class="mt-3">
         <div class="border-bottom post-container">
 
             <!-- Post Time (Removing the author since it's the user's profile) -->
@@ -113,22 +112,22 @@
             </div>
 
             <!-- Post Content -->
-            <div class="post-body mt-2">
+            <div class="post-body mt-1">
                 <a href="{% url 'post-detail' post.pk %}" aria-label="View post details">
                     {% if post.image %}
                         <img src="{{ post.image.url }}" class="post-image img-fluid" alt="Image for post by {{ post.author }}"/>
                     {% endif %}
-                    <p>{{ post.body }}</p>
+                    <p class="border-bottom text-center pb-2">{{ post.body }}</p>
                 </a>
             </div>
 
             <!-- Post Like Button -->
             <div class="d-flex flex-row">
-                <form method="POST" action="{% url 'like' post.pk %}">
+                <form method="POST" action="{% url 'like' post.pk %}" class="mr-2">
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ request.path }}">
-                    <button class="remove-default-btn" type="submit" aria-label="Like post">
-                        <i class="fa-regular fa-heart"><span>{{ post.likes.all.count }}</span></i>
+                    <button class="like-btn" type="submit" aria-label="Like post">
+                        <i class="far fa-regular fa-heart"> <span>{{ post.likes.all.count }}</span></i>
                     </button>
                 </form>
             </div>

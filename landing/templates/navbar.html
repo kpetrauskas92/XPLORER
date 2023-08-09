@@ -43,12 +43,21 @@
 
                         <!-- User Dropdown Menu -->
                         <div class="custom-dropdown">
-                            <a class="dropdown-toggle"><img src="{{ user.profile.picture.url|default:'user-default_acghod' }}" alt="User Profile" style="height: 30px; border-radius: 50%;"></a>
+                            <a class="dropdown-toggle">
+                                <img src="{{ request.user.profile.picture.url|default:'user-default_acghod' }}" 
+                                    alt="User Profile" 
+                                    style="height: 30px; border-radius: 50%;">
+                            </a>
                             <div class="dropdown-content">
-                                <a href="{% url 'profile' user.profile.pk %}"><i class="fas fa-user me-2"></i>Profile</a>
-                                <a href="{% url 'account_logout' %}"><i class="fas fa-sign-out-alt me-2"></i>Sign Out</a>
+                                <a href="{% url 'profile' request.user.profile.pk %}">
+                                    <i class="fas fa-user me-2"></i>Profile
+                                </a>
+                                <a href="{% url 'account_logout' %}">
+                                    <i class="fas fa-sign-out-alt me-2"></i>Sign Out
+                                </a>
                             </div>
                         </div>
+
                 {% endif %}
 
             </div>

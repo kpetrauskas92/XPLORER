@@ -64,7 +64,7 @@
 
                             <!-- Comment Body -->
                             <div class="post-container-light mt-2">
-                            <p class="p-1 mt-1 border-bottom">{{ comment.comment }}</p>
+                            <p>{{ comment.comment }}</p>
 
                             <!-- Comment Actions (Like and Reply) -->
                             <div class="d-flex flex-row">
@@ -75,7 +75,7 @@
                                     <form method="POST" action="{% url 'comment-like' post.pk comment.pk %}" class="mr-2">
                                         {% csrf_token %}
                                         <input type="hidden" name="next" value="{{ request.path }}">
-                                        <button class="remove-default-btn" type="submit" aria-label="Like Comment">
+                                        <button class="like-btn" type="submit" aria-label="Like Comment">
                                             <i class="far fa-regular fa-heart"> <span>{{ comment.likes.all.count }}</span></i>
                                         </button>
                                     </form>

@@ -54,7 +54,7 @@
                             <img src="{{ post.image.url }}" class="post-image img-fluid" alt="Image for post by {{ post.author }}"/>
                         
                         {% endif %}
-                        <p>{{ post.body }}</p>
+                        <p class="border-bottom text-center pb-2">{{ post.body }}</p>
                     </a>
                     </div>
                 <div class="mt-2">
@@ -63,7 +63,7 @@
                         {% csrf_token %}
                         <input type="hidden" name="next" value="{{ request.path }}">
                         <button class="like-btn" type="submit" aria-label="Like this post">
-                            <i class="fa-regular fa-heart"> <span>{{ post.likes.all.count }}</span></i>
+                            <i class="far fa-regular fa-heart"> <span>{{ post.likes.all.count }}</span></i>
                         </button>
                     </form>
                 </div>
