@@ -9,12 +9,23 @@ function togglePostForm(postFormRow) {
 }
 
 
-function commentReplyToggle(parent_id) {
-    let row = document.getElementById(parent_id);
-
-    if (row.classList.contains('d-none')) {
-        row.classList.remove('d-none');
+function commentReplyToggle(commentId) {
+    let replyInput = document.getElementById("reply-input-" + commentId);
+    
+    if (replyInput.classList.contains('d-none')) {
+        replyInput.classList.remove('d-none');
     } else {
-        row.classList.add('d-none');
+        replyInput.classList.add('d-none');
+    }
+}
+
+
+function commentToggle(postId) {
+    let commentsSection = document.getElementById("comments-" + postId);
+
+    if (commentsSection.classList.contains('d-none')) {
+        commentsSection.classList.remove('d-none');
+    } else {
+        commentsSection.classList.add('d-none');
     }
 }

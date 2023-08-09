@@ -57,7 +57,7 @@ class PostDetailView(LoginRequiredMixin, View):
     def get(self, request, pk, *args, **kwargs):
         post = Post.objects.get(pk=pk)
         form = CommentForm()
-        comments = Comment.objects.filter(post=post).order_by('-created_on')
+        comments = Comment.objects.filter(post=post, parent=None).order_by('-created_on')
         context = {
             'post': post,
             'form': form,
@@ -76,7 +76,7 @@ class PostDetailView(LoginRequiredMixin, View):
             new_comment.post = post
             new_comment.save()
 
-        comments = Comment.objects.filter(post=post).order_by('-created_on')
+        comments = Comment.objects.filter(post=post, parent=None).order_by('-created_on')
         context = {
             'post': post,
             'form': form,

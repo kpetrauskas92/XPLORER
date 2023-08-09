@@ -1,0 +1,112 @@
+{% load crispy_forms_tags %}
+{% load static %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-8 col-md-6 col-lg-5 position-relative">
+
+            <!-- Main Post Container -->
+            <div class="post-container border-top">
+
+                <!-- Comment Input Form -->
+                <form method="POST" class="mt-2">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-success mt-3" aria-label="Submit Comment">Comment</button>
+                    </div>
+                </form>
+
+                {% if comments %}
+                <!-- Toggle Comments Button -->
+                <button 
+                    class="remove-default-btn mt-3"
+                    onclick="commentToggle('{{post.pk}}')" 
+                    aria-label="Toggle Comments">
+                    View Comments
+                </button>
+                {% endif %}
+
+                <!-- Comments List -->
+                <div class="d-none mt-2" id="comments-{{ post.pk }}" aria-label="Comments Section">
+
+                    <!-- Loop through each comment -->
+                    {% for comment in comments %}
+                    <div class="mt-3 mb-1" id="{{comment.pk}}">
+
+                        <!-- Comment Header -->
+                        <div class="border-bottom">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <!-- Author's Profile Picture and Name -->
+                                <div class="d-flex align-items-center">
+                                    <a href="{% url 'profile' comment.author.profile.pk %}">
+                                        <img 
+                                            class="rounded-circle post-img mr-2" 
+                                            height="30" width="30" 
+                                            src="{{ comment.author.profile.picture.url }}"
+                                            alt="{{ comment.author }}'s profile picture">
+                                    </a>
+                                    <p class="post-text mb-0">
+                                        <a class="text-primary post-link" href="{% url 'profile' comment.author.profile.pk %}">
+                                            {{ comment.author }}
+                                        </a>
+                                        {{ comment.created_on }}
+                                    </p>
+                                </div>
+
+                                <!-- Delete Option -->
+                                {% if request.user == comment.author %}
+                                <a href="{% url 'comment-delete' post.pk comment.pk %}" class="edit-color" aria-label="Delete Comment">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                                {% endif %}
+                            </div>
+
+                            <!-- Comment Body -->
+                            <div class="post-container-light mt-2">
+                            <p class="p-1 mt-1 border-bottom">{{ comment.comment }}</p>
+
+                            <!-- Comment Actions (Like and Reply) -->
+                            <div class="d-flex flex-row">
+
+                                <!-- Like and Reply Action Wrapper -->
+                                <div class="d-flex flex-row align-items-start"> <!-- Changed align-items to start -->
+                                    <!-- Like Action -->
+                                    <form method="POST" action="{% url 'comment-like' post.pk comment.pk %}" class="mr-2">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="next" value="{{ request.path }}">
+                                        <button class="remove-default-btn" type="submit" aria-label="Like Comment">
+                                            <i class="far fa-regular fa-heart"> <span>{{ comment.likes.all.count }}</span></i>
+                                        </button>
+                                    </form>
+                                    <!-- Reply Action Icon -->
+                                    <button 
+                                        class="remove-default-btn" 
+                                        onclick="commentReplyToggle('{{comment.pk}}')" 
+                                        aria-label="Reply to Comment">
+                                        <i class="far fa-comment-dots"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            </div>
+
+                            <!-- Reply Input Form -->
+                            <div class="reply-input d-none mt-1" id="reply-input-{{comment.pk}}">
+                                <form method="POST" action="{% url 'comment_reply' post.pk comment.pk %}">
+                                    {% csrf_token %}
+                                    {{ form | crispy }}
+                                    <div class="d-grid gap-1">
+                                        <button class="btn post-form-button mt-3" aria-label="Submit Reply">Reply</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            {% include 'child_comments.html' %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
