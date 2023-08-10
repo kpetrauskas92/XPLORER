@@ -18,20 +18,19 @@
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="d-grid gap-2">
-                        <button class="btn post-form-button mt-3" aria-label="Submit post">Post</button>
+                        <button class="btn btn-success mt-3" aria-label="Submit post">Post</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Newsfeed Section -->
     {% if post_list %}
-    <aside>
-        <div class="mt-3">
-                <span class="badge text-dark p-2">Newsfeed:</span>
+    <div class="mt-3">
+        <div class="ps-1 d-flex align-items-center">
+            <i class="fas fa-newspaper me-2"></i> Newsfeed:
         </div>
-    </aside>
+    </div>
     {% endif %}
     
     <!-- Display Newsfeed Posts -->

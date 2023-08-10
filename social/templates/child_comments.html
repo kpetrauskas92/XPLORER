@@ -23,7 +23,7 @@
 
             <!-- Child Comment Delete Option -->
             {% if request.user == child_comment.author %}
-            <a href="{% url 'comment-delete' post.pk child_comment.pk %}" class="edit-color" aria-label="Delete Reply">
+            <a href="{% url 'comment-delete' post.pk child_comment.pk %}" class="bin-color" aria-label="Delete Reply">
                 <i class="fas fa-trash"></i>
             </a>
             {% endif %}

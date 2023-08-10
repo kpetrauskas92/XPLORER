@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-11 col-sm-8 col-md-6 col-lg-5 position-relative">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-5 position-relative">
 
             <!-- Main Post Container -->
             <div class="post-container border-top">
@@ -57,7 +57,7 @@
 
                                 <!-- Delete Option -->
                                 {% if request.user == comment.author %}
-                                <a href="{% url 'comment-delete' post.pk comment.pk %}" class="edit-color" aria-label="Delete Comment">
+                                <a href="{% url 'comment-delete' post.pk comment.pk %}" class="bin-color" aria-label="Delete Comment">
                                     <i class="fas fa-trash"></i>
                                 </a>
                                 {% endif %}

@@ -29,3 +29,15 @@ function commentToggle(postId) {
         commentsSection.classList.add('d-none');
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    let alerts = document.querySelectorAll('.alert');
+
+    alerts.forEach(function(alert) {
+        setTimeout(function() {
+            let bsAlert = new bootstrap.Alert(alert);
+            bsAlert.close();
+        }, 5000);
+    });
+});

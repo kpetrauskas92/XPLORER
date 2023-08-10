@@ -2,7 +2,7 @@
 <div class="content-wrapper px-4 py-2">
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-dark">
+    <nav class="navbar">
         <div class="container-fluid">
 
             <!-- Navbar Brand Logo -->
@@ -11,8 +11,7 @@
                     href="{% url 'post-list' %}"
                 {% else %}
                     href="{% url 'index' %}"
-                {% endif %}
-            >
+                {% endif %}>
                 <!-- Logo Image -->
                 <img src="https://res.cloudinary.com/doz1igebk/image/upload/v1691433983/logo_w0xszf.png" alt="Logo" style="height: 50px;">
             </a>
@@ -43,10 +42,10 @@
 
                         <!-- User Dropdown Menu -->
                         <div class="custom-dropdown">
-                            <a class="dropdown-toggle">
+                            <a>
                                 <img src="{{ request.user.profile.picture.url|default:'user-default_acghod' }}" 
-                                    alt="User Profile" 
-                                    style="height: 30px; border-radius: 50%;">
+                                     alt="User Profile" 
+                                     style="height: 30px; border-radius: 50%;">
                             </a>
                             <div class="dropdown-content">
                                 <a href="{% url 'profile' request.user.profile.pk %}">

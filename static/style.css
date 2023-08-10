@@ -38,7 +38,11 @@ footer i:hover {
 }
 
 .edit-color {
-    color: #333;
+    color: #0d7136;
+}
+
+.bin-color {
+    color: rgb(143, 0, 0);
 }
 
 /* Form control & Input group styles */
@@ -108,10 +112,6 @@ footer i:hover {
     display: block;
 }
 
-.dropdown-toggle {
-    color: #333;
-}
-
 /* =====================================
    VIDEO CONTAINER STYLES
    ===================================== */
@@ -155,15 +155,6 @@ footer i:hover {
     background-color: #fff;
 }
 
-.post-form-button {
-    background: linear-gradient(90deg, rgba(62, 193, 238, 1) 0%, rgba(72, 153, 236, 1) 100%);
-    color: white;
-    border: none;
-}
-
-.post-form-button:hover {
-    background: linear-gradient(90deg, rgba(72, 153, 236, 1) 0%, rgba(62, 193, 238, 1) 100%);
-}
 
 /* =====================================
    POST CONTAINER STYLES
@@ -226,7 +217,7 @@ footer i:hover {
 }
 
 .like-btn.liked .fa-heart {
-    color: #ff4566;
+    color: #0f5f08;
 }
 
 /* =====================================
