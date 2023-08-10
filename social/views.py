@@ -2,7 +2,7 @@ from datetime import date
 from django.shortcuts import render, redirect
 from django.db.models import Q, Max
 from django.urls import reverse_lazy
-from django.http import HttpResponseRedirect
+from django.http import JsonResponse
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.contrib import messages
 from django.views import View
@@ -225,43 +225,37 @@ class RemoveFollower(LoginRequiredMixin, View):
 
 class AddLike(LoginRequiredMixin, View):
     def post(self, request, pk, *args, **kwargs):
-        post = Post.objects.get(pk=pk)
-
-        is_like = False
+        post = get_object_or_404(Post, pk=pk)
+        user = request.user
+        liked = False
         
-        for like in post.likes.all():
-            if like == request.user:
-                is_like = True
-                break
+        if user in post.likes.all():
+            post.likes.remove(user)
+        else:
+            post.likes.add(user)
+            liked = True
 
-        if not is_like:
-            post.likes.add(request.user)
-
-        if is_like:
-            post.likes.remove(request.user)
-
-        next = request.POST.get('next', '/')
-        return HttpResponseRedirect(next)
+        return JsonResponse({
+            'likes_count': post.likes.count(),
+            'liked': liked
+        })
 
 class AddCommentLike(LoginRequiredMixin, View):
-    def post(self, request, post_pk, comment_pk, *args, **kwargs):
+    def post(self, request, comment_pk, *args, **kwargs):
         comment = Comment.objects.get(pk=comment_pk)
-
-        is_like = False
+        user = request.user
+        liked = False
         
-        for like in comment.likes.all():
-            if like == request.user:
-                is_like = True
-                break
+        if user in comment.likes.all():
+            comment.likes.remove(user)
+        else:
+            comment.likes.add(user)
+            liked = True
 
-        if not is_like:
-            comment.likes.add(request.user)
-
-        if is_like:
-            comment.likes.remove(request.user)
-
-        next = request.POST.get('next', '/')
-        return HttpResponseRedirect(next)
+        return JsonResponse({
+            'likes_count': comment.likes.count(),
+            'liked': liked
+        })
 
 
 class UserSearch(View):

@@ -212,11 +212,11 @@ footer i:hover {
     cursor: pointer;
 }
 
-.like-btn .fa-heart {
-    color: #333;
+.like-btn i {
+    color: #000000;
 }
 
-.like-btn.liked .fa-heart {
+.like-btn.liked i {
     color: #0f5f08;
 }
 

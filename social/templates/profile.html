@@ -1,5 +1,7 @@
 {% extends 'base_grid.html' %}
 
+{$ load static$}
+
 {% block grid_content %}
 
     <!-- Back to Feed Button -->
@@ -121,12 +123,12 @@
 
             <!-- Post Like Button -->
             <div class="d-flex flex-row">
-                <form method="POST" action="{% url 'like' post.pk %}" class="mr-2">
+                <form id="like-form-{{ post.pk }}" method="POST" action="{% url 'like' post.pk %}">
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ request.path }}">
-                    <button class="like-btn" type="submit" aria-label="Like post">
-                        <i class="far fa-regular fa-heart"> <span>{{ post.likes.all.count }}</span></i>
-                    </button>
+                    <button class="like-btn {% if user in post.likes.all %}liked{% endif %}" type="button" onclick="likePost('{{ post.pk }}')" aria-label="Like this post">
+                        <i class="{% if user in post.likes.all %}fas{% else %}far{% endif %} fa-heart"></i> <span id="like-count-{{ post.pk }}">{{ post.likes.all.count }}</span>
+                    </button>                                                
                 </form>
             </div>
         </div>

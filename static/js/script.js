@@ -41,3 +41,71 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5000);
     });
 });
+
+function getCookie(name) {
+    let value = "; " + document.cookie;
+    let parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+function likePost(postId) {
+    const csrftoken = getCookie('csrftoken');
+    const likeButton = document.querySelector(`#like-form-${postId} .like-btn`);
+    const heartIcon = document.querySelector(`#like-form-${postId} .like-btn i`);
+    const likeCountElement = document.getElementById(`like-count-${postId}`);
+
+    fetch(`/social/likepost/${postId}/`, {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': csrftoken
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        likeCountElement.innerText = data.likes_count;
+
+        if (data.liked) {
+            likeButton.classList.add('liked');
+            heartIcon.classList.remove('far');
+            heartIcon.classList.add('fas');
+        } else {
+            likeButton.classList.remove('liked');
+            heartIcon.classList.remove('fas');
+            heartIcon.classList.add('far');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+function likeComment(commentId) {
+    const csrftoken = getCookie('csrftoken');
+    const likeButton = document.querySelector(`#comment-like-form-${commentId} .like-btn`);
+    const heartIcon = document.querySelector(`#comment-like-form-${commentId} .like-btn i`);
+    const likeCountElement = document.getElementById(`comment-like-count-${commentId}`);
+
+    fetch(`/social/likecomment/${commentId}/`, {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': csrftoken
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        likeCountElement.innerText = data.likes_count;
+
+        if (data.liked) {
+            likeButton.classList.add('liked');
+            heartIcon.classList.remove('far');
+            heartIcon.classList.add('fas');
+        } else {
+            likeButton.classList.remove('liked');
+            heartIcon.classList.remove('fas');
+            heartIcon.classList.add('far');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}

@@ -58,12 +58,12 @@
                     </div>
                 <div class="mt-2">
                     <!-- Likes button -->
-                    <form method="POST" action="{% url 'like' post.pk %}">
+                    <form id="like-form-{{ post.pk }}" method="POST" action="{% url 'like' post.pk %}">
                         {% csrf_token %}
                         <input type="hidden" name="next" value="{{ request.path }}">
-                        <button class="like-btn" type="submit" aria-label="Like this post">
-                            <i class="far fa-regular fa-heart"> <span>{{ post.likes.all.count }}</span></i>
-                        </button>
+                        <button class="like-btn {% if user in post.likes.all %}liked{% endif %}" type="button" onclick="likePost('{{ post.pk }}')" aria-label="Like this post">
+                            <i class="{% if user in post.likes.all %}fas{% else %}far{% endif %} fa-heart"></i> <span id="like-count-{{ post.pk }}">{{ post.likes.all.count }}</span>
+                        </button>                                                
                     </form>
                 </div>
             </div>
@@ -74,5 +74,5 @@
             <p>You can find users in search</p>
     </div>
     {% endfor %}
-<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+
 {% endblock grid_content %}

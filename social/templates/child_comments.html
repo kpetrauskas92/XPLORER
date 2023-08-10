@@ -34,13 +34,14 @@
 
         <!-- Child Comment Like Action -->
         <div class="d-flex flex-row">
-            <form method="POST" action="{% url 'comment-like' post.pk child_comment.pk %}" class="mr-2">
+            <form id="comment-like-form-{{ child_comment.pk }}" method="POST" action="{% url 'comment-like' child_comment.pk %}">
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{{ request.path }}">
-                <button class="like-btn type="submit" aria-label="Like Reply">
-                    <i class="far fa-regular fa-heart"> <span>{{ child_comment.likes.all.count }}</span></i>
+                <button class="like-btn {% if user in child_comment.likes.all %}liked{% endif %}" type="button" onclick="likeComment('{{ child_comment.pk }}')" aria-label="Like Reply">
+                    <i class="{% if user in child_comment.likes.all %}fas{% else %}far{% endif %} fa-heart"></i> <span id="comment-like-count-{{ child_comment.pk }}">{{ child_comment.likes.all.count }}</span>
                 </button>
-            </form>
+            </form>            
+            
         </div>
     </div>
 </div>

@@ -71,15 +71,17 @@
                             <div class="d-flex flex-row">
 
                                 <!-- Like and Reply Action Wrapper -->
-                                <div class="d-flex flex-row align-items-start"> <!-- Changed align-items to start -->
+                                <div class="d-flex flex-row align-items-start">
+
                                     <!-- Like Action -->
-                                    <form method="POST" action="{% url 'comment-like' post.pk comment.pk %}" class="mr-2">
+                                    <form id="comment-like-form-{{ comment.pk }}" method="POST" action="{% url 'comment-like' comment.pk %}">
                                         {% csrf_token %}
                                         <input type="hidden" name="next" value="{{ request.path }}">
-                                        <button class="like-btn" type="submit" aria-label="Like Comment">
-                                            <i class="far fa-regular fa-heart"> <span>{{ comment.likes.all.count }}</span></i>
+                                        <button class="like-btn {% if user in comment.likes.all %}liked{% endif %}" type="button" onclick="likeComment('{{ comment.pk }}')" aria-label="Like Comment">
+                                            <i class="{% if user in comment.likes.all %}fas{% else %}far{% endif %} fa-heart"></i> <span id="comment-like-count-{{ comment.pk }}">{{ comment.likes.all.count }}</span>
                                         </button>
-                                    </form>
+                                    </form>                                    
+                                    
                                     <!-- Reply Action Icon -->
                                     <button 
                                         class="remove-default-btn" 
@@ -97,7 +99,7 @@
                                     {% csrf_token %}
                                     {{ form | crispy }}
                                     <div class="d-grid gap-1">
-                                        <button class="btn post-form-button mt-3" aria-label="Submit Reply">Reply</button>
+                                        <button class="btn btn-success mt-3" aria-label="Submit Reply">Reply</button>
                                     </div>
                                 </form>
                             </div>
