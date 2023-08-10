@@ -3,6 +3,7 @@ from django.db.models import Q, Max
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.contrib import messages
 from django.views import View
 from .models import Post, Comment, UserProfile
 from .forms import PostForm, CommentForm
@@ -42,6 +43,7 @@ class PostListView(LoginRequiredMixin, View):
             new_post = form.save(commit=False)
             new_post.author = request.user
             new_post.save()
+            messages.success(request, 'Your post has been created! 🎉')
             return redirect('post-list')
 
         # If the form isn't valid, render the page with the form and posts again
@@ -75,6 +77,7 @@ class PostDetailView(LoginRequiredMixin, View):
             new_comment.author = request.user
             new_comment.post = post
             new_comment.save()
+            messages.success(request, 'Your comment has been added!')
 
         comments = Comment.objects.filter(post=post, parent=None).order_by('-created_on')
         context = {
@@ -114,6 +117,10 @@ class PostEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def test_func(self):
         post = self.get_object()
         return self.request.user == post.author
+    
+    def form_valid(self, form):
+        messages.success(self.request, 'Your post has been updated!')
+        return super().form_valid(form)
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
@@ -123,6 +130,10 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         post = self.get_object()
         return self.request.user == post.author
+    
+    def delete(self, request, *args, **kwargs):
+        messages.success(request, 'Your post has been deleted.')
+        return super().delete(request, *args, **kwargs)
 
 
 class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -136,6 +147,10 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         post = self.get_object()
         return self.request.user == post.author
+    
+    def delete(self, request, *args, **kwargs):
+        messages.success(request, 'Comment deleted successfully.')
+        return super().delete(request, *args, **kwargs)
 
 
 class ProfileView(View):
@@ -180,6 +195,10 @@ class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def test_func(self):
         profile = self.get_object()
         return self.request.user == profile.user
+    
+    def form_valid(self, form):
+        messages.success(self.request, 'Your profile has been updated!')
+        return super().form_valid(form)
 
 
 class AddFollower(LoginRequiredMixin, View):
