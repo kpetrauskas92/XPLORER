@@ -25,3 +25,7 @@ urlpatterns = [
     path('social/', include('social.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+handler400 = 'landing.views.error_400'
+handler403 = 'landing.views.error_403'
+handler404 = 'landing.views.error_404'
+handler500 = 'landing.views.error_500'

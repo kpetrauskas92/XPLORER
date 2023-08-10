@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_block %}
+<body style="background-color: white;">
+    {% include 'navbar.html' %}
+    <section class="error-page">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-12 text-center">
+                    <div class="four_zero_four_bg">
+                        <h1 class="text-center ">404</h1>
+                    </div>
+                    <div class="content-box">
+                        <h3 class="h2">Look like you're lost</h3>
+                        <p>The page you're looking for doesn't exist.</p>
+                        <a href="{% url 'index' %}" class="link_404">Go Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+{% endblock body_block %}
