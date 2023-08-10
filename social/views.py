@@ -44,10 +44,9 @@ class PostListView(LoginRequiredMixin, View):
             new_post = form.save(commit=False)
             new_post.author = request.user
             new_post.save()
-            messages.success(request, 'Your post has been created! 🎉')
+            messages.success(request, 'Your post has been created! See it in your Profile 🎉')
             return redirect('post-list')
 
-        # If the form isn't valid, render the page with the form and posts again
         posts = self.get_followed_users_posts(request.user)
         context = {
             'post_list': posts,

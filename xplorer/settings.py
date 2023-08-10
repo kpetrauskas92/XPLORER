@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 ALLOWED_HOSTS = ["xplorer-p4-ad2c5b0b95ce.herokuapp.com", "xplorer",  
@@ -49,7 +49,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_REDIRECT_URL = 'post-list'
-ACCOUNT_EMAIL_REQUIRED = 'none'
+ACCOUNT_EMAIL_REQUIRED = False
 
 INSTALLED_APPS = [
     'django.contrib.admin',

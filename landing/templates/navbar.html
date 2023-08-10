@@ -17,9 +17,9 @@
             </a>
             
             <!-- Navbar Contents -->
-            <div>
+            <div class="form-with-dropdown">
                 <!-- Navbar List -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-lg-0">
                 </ul>
 
                 <!-- User Authentication Related Features -->
@@ -45,7 +45,7 @@
                             <a>
                                 <img src="{{ request.user.profile.picture.url|default:'user-default_acghod' }}" 
                                      alt="User Profile" 
-                                     style="height: 30px; border-radius: 50%;">
+                                     style="height: 30px; border-radius: 50%; border-style: solid; border-width: 1px; border-color: green;">
                             </a>
                             <div class="dropdown-content">
                                 <a href="{% url 'profile' request.user.profile.pk %}">

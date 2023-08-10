@@ -374,3 +374,16 @@ footer i:hover {
 .content-box { 
     margin-top: -50px;
 }
+
+@media (max-width: 547px) {
+    .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .navbar-brand, .form-with-dropdown {
+        margin: 0 auto;
+    }
+    
+}
