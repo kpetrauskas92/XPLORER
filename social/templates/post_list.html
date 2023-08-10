@@ -45,7 +45,7 @@
                     <span class="post-author pe-1">
                         <a class="text-primary" href="{% url 'profile' post.author.profile.pk %}">{{ post.author }}</a>
                     </span>
-                    <span class="ml-2">{{ post.created_on }}</span>
+                    <span class="ml-2 posted-on-text">{{ post.created_on }}</span>
                 </div>
                     <div class="post-body mt-2">
                         <a href="{% url 'post-detail' post.pk %}">

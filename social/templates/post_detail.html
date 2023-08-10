@@ -23,8 +23,9 @@
                     </a>
                     <p class="post-text mb-0">
                         <a class="text-primary" href="{% url 'profile' post.author.profile.pk %}">{{ post.author }}</a>
-                        {{ post.created_on }}
+
                     </p>
+                    <span class="ms-1 posted-on-text">{{ post.created_on }}</span>
                 </div>
                 {% if request.user == post.author %}
                     <div>

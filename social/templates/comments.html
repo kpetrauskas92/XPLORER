@@ -50,8 +50,9 @@
                                         <a class="text-primary post-link" href="{% url 'profile' comment.author.profile.pk %}">
                                             {{ comment.author }}
                                         </a>
-                                        {{ comment.created_on }}
+                                
                                     </p>
+                                    <span class="ms-1 posted-on-text">{{ comment.created_on }}</span>
                                 </div>
 
                                 <!-- Delete Option -->

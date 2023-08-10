@@ -21,6 +21,12 @@ footer i:hover {
     color: #2261e9;
 }
 
+.posted-on-text {
+    color: #333;
+    font-size: 0.7rem;
+    margin-top: 5px;
+}
+
 .remove-default-btn {
     border: none;
     background-color: transparent;
@@ -180,7 +186,7 @@ footer i:hover {
 }
 
 .post-img {
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .post-author {
@@ -228,7 +234,7 @@ footer i:hover {
    ===================================== */
 
 .child-comment {
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 
 /* =====================================
@@ -316,7 +322,7 @@ footer i:hover {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -326,6 +332,7 @@ footer i:hover {
     display: flex;
     align-items: center;
     gap: 5px;
+    font-size: 0.9em;
 }
 
 .user-profile-info p {
@@ -334,6 +341,6 @@ footer i:hover {
 
 .user-profile-info a {
     text-decoration: none;
-    color: #007bff;
+    color: #0d7136;
     font-weight: 500;
 }

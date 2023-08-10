@@ -17,8 +17,8 @@
                     <a class="text-primary post-link" href="{% url 'profile' child_comment.author.profile.pk %}">
                         {{ child_comment.author }}
                     </a>
-                    {{ child_comment.created_on }}
                 </p>
+                <span class="ms-1 posted-on-text">{{ child_comment.created_on }}</span>
             </div>
 
             <!-- Child Comment Delete Option -->
