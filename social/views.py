@@ -1,3 +1,4 @@
+from datetime import date
 from django.shortcuts import render, redirect
 from django.db.models import Q, Max
 from django.urls import reverse_lazy
@@ -6,7 +7,7 @@ from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.contrib import messages
 from django.views import View
 from .models import Post, Comment, UserProfile
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, UserProfileForm
 from django.views.generic.edit import UpdateView, DeleteView
 
 
@@ -172,12 +173,18 @@ class ProfileView(View):
 
         number_of_followers = len(followers)
 
+        if profile.date_of_birth:
+            age = date.today().year - profile.date_of_birth.year - ((date.today().month, date.today().day) < (profile.date_of_birth.month, profile.date_of_birth.day))
+        else:
+            age = None
+
         context = {
             'user': user,
             'profile': profile,
             'posts': posts,
             'number_of_followers': number_of_followers,
             'is_following': is_following,
+            'age': age,
         }
 
         return render(request, 'profile.html', context)
@@ -185,7 +192,7 @@ class ProfileView(View):
 
 class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = UserProfile
-    fields = ['name', 'bio', 'birth_date', 'location', 'picture']
+    form_class = UserProfileForm
     template_name = 'profile_edit.html'
 
     def get_success_url(self):

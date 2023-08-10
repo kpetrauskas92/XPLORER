@@ -41,7 +41,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, primary_key=True, verbose_name='user', related_name='profile', on_delete=models.CASCADE)
     name = models.CharField(max_length=20, blank=True, null=True)
     bio = models.TextField(max_length=200, blank=True, null=True)
-    birth_date = models.DateField(null=True, blank=True)
+    date_of_birth = models.DateField(null=True, blank=True)
     location = models.CharField(max_length=50, blank=True, null=True)
     picture = CloudinaryField('profile_image', default='user-default_acghod')
     followers = models.ManyToManyField(User, blank=True, related_name='followers')

@@ -50,14 +50,14 @@
             </div>
 
             <!-- Profile Birth Date -->
-            {% if profile.birth_date %}
+            <div class="profile-detail py-1 pb-3">
+            {% if profile.date_of_birth %}
             <div class="d-flex justify-content-center align-items-center py-1">
                 <i class="fas fa-birthday-cake mr-2"></i> 
-                <p>{{ profile.birth_date }}</p>
+                <p>{{ age }}</p>
             </div>
             {% endif %}
 
-            <div class="profile-detail py-1 pb-3">
             <!-- Profile Location -->
             {% if profile.location %}
             <div class="d-flex justify-content-center align-items-center py-1">
