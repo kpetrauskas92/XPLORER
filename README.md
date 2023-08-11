@@ -286,6 +286,7 @@ These are the user stories that were completed within the projects first release
 ---
 
 * USER STORY [#28](https://github.com/kpetrauskas92/XPLORER/issues/28)
+
 > Verification - As a registered user, I want my profile to be verified so that other users can trust the authenticity of my profile.
 
 **Acceptance Criteria**:
@@ -316,6 +317,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ### 2. User Login
 
 * USER STORY [#30](https://github.com/kpetrauskas92/XPLORER/issues/30)
+
 > Standard Login - As a registered user, I want to log in using my username/email and password so that I can securely access my account.
 
 **Acceptance Criteria**:
@@ -330,6 +332,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ---
 
 * USER STORY [#31](https://github.com/kpetrauskas92/XPLORER/issues/31)
+
 > Forgotten Password - As a user who has forgotten my password, I want to reset it so that I can regain access to my account.
 
 **Acceptance Criteria**:
@@ -344,6 +347,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ---
 
 * USER STORY [#32](https://github.com/kpetrauskas92/XPLORER/issues/32)
+
 > Remember Me Option - As a user logging in, I want the platform to remember my session so that I don't have to log in every time I visit.
 
 **Acceptance Criteria**:
@@ -360,6 +364,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ### 3. User Profile
 
 * USER STORY [#33](https://github.com/kpetrauskas92/XPLORER/issues/33)
+
 > Viewing Profile - As a registered user, I want to view my profile so that I can see my details and activities.
 
 **Acceptance Criteria**:
@@ -374,6 +379,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ---
 
 * USER STORY [#34](https://github.com/kpetrauskas92/XPLORER/issues/34)
+
 > Editing Profile Details - As a registered user, I want to edit my profile information so that I can keep my details up-to-date.
 
 **Acceptance Criteria**:
@@ -388,6 +394,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ---
 
 * USER STORY [#35](https://github.com/kpetrauskas92/XPLORER/issues/35)
+
 > Changing Profile Picture - As a registered user, I want to change my profile picture so that I can personalize my profile.
 
 **Acceptance Criteria**:
@@ -402,6 +409,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ---
 
 * USER STORY [#36](https://github.com/kpetrauskas92/XPLORER/issues/36)
+
 > Setting Profile Preferences - As a registered user, I want to set preferences in my profile so that I can customize my experience on the platform.
 
 **Acceptance Criteria**:
@@ -416,6 +424,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ---
 
 * USER STORY [#40](https://github.com/kpetrauskas92/XPLORER/issues/40)
+
 > Profile Deletion - As a registered user, I want to delete my profile so that my data and activities are permanently removed from the platform.
 
 **Acceptance Criteria**:
@@ -432,6 +441,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ### 4. Post Creation
 
 * USER STORY [#37](https://github.com/kpetrauskas92/XPLORER/issues/37)
+
 > Basic Post Creation - As a user, I want to create a post so that I can share content with others on the platform.
 
 **Acceptance Criteria**:
@@ -446,6 +456,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ---
 
 * USER STORY [#38](https://github.com/kpetrauskas92/XPLORER/issues/38)
+
 > Adding Images to Post - As a user, I want to add images to my post so that my content can be more engaging and descriptive.
 
 **Acceptance Criteria**:
@@ -460,6 +471,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ---
 
 * USER STORY [#39](https://github.com/kpetrauskas92/XPLORER/issues/39)
+
 > Tagging in Posts - As a user, I want to add tags to my post so that it can be more discoverable to users interested in that topic.
 
 **Acceptance Criteria**:
@@ -474,6 +486,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ---
 
 * USER STORY [#41](https://github.com/kpetrauskas92/XPLORER/issues/41)
+
 > Post Edit - As a user, I want to edit my previously created post so that I can correct mistakes or update its content.
 
 **Acceptance Criteria**:
@@ -490,6 +503,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ### 5. Like Posts & Comments
 
 * USER STORY [#43](https://github.com/kpetrauskas92/XPLORER/issues/43)
+
 > Like a Post - As a user, I want to like a post so that I can show appreciation for content I enjoy.
 
 **Acceptance Criteria**:
@@ -504,6 +518,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ---
 
 * USER STORY [#44](https://github.com/kpetrauskas92/XPLORER/issues/44)
+
 > Like a Comment - As a user, I want to like a comment so that I can acknowledge or show agreement with it.
 
 **Acceptance Criteria**:
@@ -518,6 +533,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ---
 
 * USER STORY [#45](https://github.com/kpetrauskas92/XPLORER/issues/45)
+
 > View Liked Content - As a user, I want to view posts and comments I've previously liked so that I can revisit content that I enjoyed or found valuable.
 
 **Acceptance Criteria**:
@@ -534,6 +550,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ### 6. Comment Reply
 
 * USER STORY [#56](https://github.com/kpetrauskas92/XPLORER/issues/56)
+
 > Reply to a Comment - As a user, I want to reply directly to another user's comment so that I can interact in a threaded conversation and clarify or discuss specific points.
 
 **Acceptance Criteria**:
@@ -548,6 +565,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ---
 
 * USER STORY [#57](https://github.com/kpetrauskas92/XPLORER/issues/57)
+
 > View Threaded Replies - As a user, I want to see replies in a threaded format under the original comment so that I can easily follow conversations and understand the context of each reply.
 
 **Acceptance Criteria**:
@@ -564,6 +582,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ### 7. News Feed
 
 * USER STORY [#46](https://github.com/kpetrauskas92/XPLORER/issues/46)
+
 > View News Feed - As a user, I want to view a news feed so that I can see the latest posts and updates from people I follow and topics I'm interested in.
 
 **Acceptance Criteria**:
@@ -578,6 +597,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ---
 
 * USER STORY [#47](https://github.com/kpetrauskas92/XPLORER/issues/47)
+
 > Interact with Feed Items - As a user, I want to interact with items on my news feed so that I can like, comment, or share them.
 
 **Acceptance Criteria**:
@@ -592,6 +612,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ---
 
 * USER STORY [#48](https://github.com/kpetrauskas92/XPLORER/issues/48)
+
 > Customize News Feed - As a user, I want to customize my news feed so that I can choose the type of content I want to see more or less of.
 
 **Acceptance Criteria**:
@@ -608,6 +629,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ### 8. User Follow/Unfollow
 
 * USER STORY [#49](https://github.com/kpetrauskas92/XPLORER/issues/49)
+
 > Follow a User - As a user, I want to follow another user so that I can see their posts and updates in my news feed.
 
 **Acceptance Criteria**:
@@ -622,6 +644,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 ---
 
 * USER STORY [#50](https://github.com/kpetrauskas92/XPLORER/issues/50)
+
 > Unfollow a User - As a user, I want to unfollow a user so that I no longer see their content in my news feed.
 
 **Acceptance Criteria**:
@@ -652,6 +675,7 @@ USER STORY [#51](https://github.com/kpetrauskas92/XPLORER/issues/51)
 ### 9. User Search
 
 * USER STORY [#52](https://github.com/kpetrauskas92/XPLORER/issues/52)
+
 > Basic User Search - As a user, I want to search for other users by their username or name so that I can easily find and interact with their profiles.
 
 **Acceptance Criteria**:
@@ -666,6 +690,7 @@ USER STORY [#51](https://github.com/kpetrauskas92/XPLORER/issues/51)
 ---
 
 * USER STORY [#53](https://github.com/kpetrauskas92/XPLORER/issues/53)
+
 > Advanced User Search - As a user, I want to filter my search results so that I can narrow down and find specific users based on criteria like location, interests, or mutual connections.
 
 **Acceptance Criteria**:
@@ -682,6 +707,7 @@ USER STORY [#51](https://github.com/kpetrauskas92/XPLORER/issues/51)
 ### 10. User Logout
 
 * USER STORY [#54](https://github.com/kpetrauskas92/XPLORER/issues/54)
+
 > Secure Logout - As a logged-in user, I want to log out of my account so that I can ensure my account's security, especially on shared or public devices.
 
 **Acceptance Criteria**:
@@ -701,7 +727,6 @@ USER STORY [#51](https://github.com/kpetrauskas92/XPLORER/issues/51)
 
 #### Database Schema
 
-
 ![Database Schema Diagram]()
 
 ### The Surface Plane
@@ -715,7 +740,6 @@ USER STORY [#51](https://github.com/kpetrauskas92/XPLORER/issues/51)
 ## Features
 
 #### Home page
-
 
 ![Home Page]()
 
