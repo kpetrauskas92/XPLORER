@@ -1,4 +1,4 @@
-# EXPLORER
+![Logo](media/readme/logo.png)
 
 ## Introduction
 
@@ -21,7 +21,6 @@ Please note: To open any links in this document in a new browser tab, please pre
     * [User Stories](#user-stories)
   * [The Scope Plane](#the-scope-plane)
   * [The Structure Plane](#the-structure-plane)
-    * [Opportunities](#opportunities)
   * [The Skeleton Plane](#the-skeleton-plane)
     * [Wireframes](#Wireframe-mockups)
     * [Database Schema](#database-schema)
@@ -723,7 +722,17 @@ USER STORY [#51](https://github.com/kpetrauskas92/XPLORER/issues/51)
 
 #### Wireframe mock-ups
 
-![Home Page Wireframe]()
+## Landing Page ![Landing Page Wireframe](media/readme/wireframes/Landing.png)
+
+## Home Page ![Home Page Wireframe](media/readme/wireframes/Index.png)
+
+## Login/Register ![Login/Register Wireframe](media/readme/wireframes/Login_Register.png)
+
+## Post Detail ![Post Detail Wireframe](media/readme/wireframes/Post_Detail.png)
+
+## Profile ![Profile Wireframe](media/readme/wireframes/Profile.png)
+
+## Search ![Search Wireframe](media/readme/wireframes/Search.png)
 
 #### Database Schema
 
