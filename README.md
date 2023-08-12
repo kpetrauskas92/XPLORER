@@ -805,7 +805,6 @@ XPLORER is a mobile-first social media platform designed to offer an app-like ex
 After setting up the site structure and wireframes, I picked the colors using colormind. For the look, I took inspiration from the colors of the logo and chose simple, distraction-free colors often found in social media platforms. I also checked the colors to ensure they contrast well, making the site easy to read and use for everyone.
 ![Colour Palate image](media/readme/color_palette.png)
 
-
 ### Typography
 
 For the fonts on XPLORER, I went with the System Font Stack. What's great about these "system" fonts is that they align with what the current operating system uses. This gives the site a familiar and comfortable look for users, as it matches the style they see on their devices daily.
@@ -814,23 +813,111 @@ For the fonts on XPLORER, I went with the System Font Stack. What's great about 
 
 ## Features
 
-#### Home Page
+<details><summary>Desktop View</summary>
 
-![Home Page](media/readme/Homepage.png)
+#### Landing Page
 
-#### Sign in Page
+Features a beautiful video background setting the scene for the platform. The title is prominently displayed with direct "Sign In" and "Register" buttons.
 
-![Signin Page](media/readme/Signin_page.png)
+* This immersive landing design ensures a memorable first impression for visitors,      guiding newcomers and returning users alike.
 
-#### Sign up Page
+![Landing Page](media/readme/Homepage.png)
 
-![Signup Page](media/readme/Signup_page.png)
+#### Signin/Sign up Page
+
+Sign in Page: A straightforward form designed specifically for returning users to seamlessly access their accounts. Tailored for quick access, ensuring returning users dive right back into their journey.
+
+Sign up Page: An intuitive form created for newcomers, offering a simple process to join the community. Streamlines the onboarding process, making the first step into the community a breeze.
+
+![Signin/Sign up Page](media/readme/Signin_up.gif)
 
 #### Navigation Bar
 
-![Logged in User Nav Bar]()
+Features an efficient search input field and a profile image that reveals a dropdown, linking to profile management and logout.
 
-etc.
+* Maximizes utility and accessibility, ensuring users have the essential tools at their fingertips.
+
+![Logged in User Nav Bar](media/readme/auth_navbar.png)
+
+#### Newsfeed Page
+
+Displays a curated feed of posts from users being followed, complemented by an option for users to share their own content.
+
+* The central hub for user interaction and content discovery.
+
+![Newsfeed Page](media/readme/Newsfeed.gif)
+
+#### Post Detail Page
+
+Showcases the full content of a clicked post, offering users a deep dive into the shared story.
+
+* Crafted for enhanced user engagement and content appreciation.
+
+![Post Detail Page](media/readme/Post_detail.png)
+
+#### Post Detail Author
+
+Equips authors with the tools to edit or delete their posts, providing control over their shared content.
+
+* Empowering content creators, ensuring their narratives remain dynamic and current.
+
+![Post Detail Author](media/readme/Post_detail_author.png)
+
+#### Post Comments
+
+Facilitates community interaction by allowing users to comment on posts and directly reply to comments.
+
+* Turning individual posts into thriving hubs of conversation and community insights.
+
+![Post Comments](media/readme/Comments_view.gif)
+
+#### Default Profile Page
+
+Presents newcomers with a basic profile layout, ready for customization.
+
+* A welcoming start, encouraging users to make their space unique.
+
+![Default Profile Page](media/readme/Default_profile.png)
+
+#### Profile Edit Page
+
+Offers a suite of editable fields, from name and profile picture to location and bio. Post edits, users are immediately shown their updated profile.
+
+* Putting users in the driver's seat of their digital identity on the platform.
+
+![Profile Edit Page](media/readme/Profile_edit.gif)
+
+#### User Follow/Unfollow
+
+Enables users to manage their connections, providing options to follow or unfollow other members.
+
+* Streamlining community building and user networking.
+
+![User Follow/Unfollow](media/readme/follow_unfollow.gif)
+
+#### Search Page
+
+Designed for efficient user discovery, showcasing platform members. Users matching search criteria are displayed in the query results.
+
+* Optimizing the exploration experience, connecting users with potential new connections or content.
+
+![Search Page](media/readme/Search.gif)
+
+#### Log Out Page
+
+Prior to exiting, users are presented with a prompt, ensuring their intent to leave the platform.
+
+* Safeguarding user sessions and enhancing platform security.
+
+![Log Out Page](media/readme/Logout.gif)
+
+</details>
+
+### Mobile View
+
+XPLORER prioritizes mobile responsiveness, ensuring that users on-the-go have a seamless and efficient experience. The design is meticulously optimized for smaller screens, removing any unnecessary elements and focusing on core functionalities to provide a clean and intuitive interface. The layout, buttons, and interactive elements are all touch-friendly, making navigation a breeze.
+
+![Mobile View](media/readme/Mobile.gif)
 
 ## Future Enhancements
 
@@ -856,7 +943,7 @@ To deploy the project through Heroku I followed these steps:
 
 * Sign up / Log in to [Heroku](https://www.heroku.com/)
 * From the main Heroku Dashboard page select 'New' and then 'Create New App'
-* Give the project a name - I entered The-Pantry and select a suitable region, then select create app. The name for the app must be unique.
+* Give the project a name - I entered xplorer-p4 and select a suitable region, then select create app. The name for the app must be unique.
 * This will create the app within Heroku and bring you to the deploy tab. From the submenu at the top, navigate to the resources tab.
 * Add the database to the app, in the add-ons section search for 'Heroku Postgres', select the package that appears and add 'Heroku Postgres' as the database
 * Navigate to the setting tab, within the config vars section copy the DATABASE_URL to the clipboard for use in the Django configuration.

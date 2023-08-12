@@ -6,7 +6,16 @@
 
 {% block grid_content %}
 
-<div class="mt-5">
+<!-- Back Button Row -->
+<div class="mt-2">
+    <a href="{% url 'post-list' %}">
+    <button class="btn btn-dark w-100" aria-label="Add a new post">
+        <i class="fa-regular fa-circle-left" style="color: white;"></i> Back to Feed
+    </button>
+    </a>
+</div>
+
+<div class="mt-4">
     <div class="post-container p-5">
         <div class="text-center">
             <h1>{% trans "Sign Out" %}</h1>
@@ -19,7 +28,7 @@
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
                 {% endif %}
             <div class="d-grid gap-2">
-                <button class="btn btn-dark" type="submit">{% trans 'Sign Out' %}</button>
+                <button class="btn btn-danger" type="submit">{% trans 'Sign Out' %}</button>
             </div>
         </form>
     </div>

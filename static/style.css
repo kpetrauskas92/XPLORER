@@ -21,6 +21,14 @@ footer i:hover {
     color: #2261e9;
 }
 
+.nav-profile-pic img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid green;
+    object-fit: cover;
+}
+
 .posted-on-text {
     color: #333;
     font-size: 0.7rem;
@@ -318,6 +326,14 @@ footer i:hover {
     padding-bottom: 5px;
 }
 
+.user-image-and-name img {
+    object-fit: cover;
+}
+
+.profile-pic {
+    object-fit: cover;
+}
+
 .user-profile-info {
     display: flex;
     justify-content: space-between;
@@ -395,4 +411,16 @@ footer i:hover {
         margin: 0 auto;
     }
     
+}
+
+@media (max-width: 768px) {
+    .navbar-brand.not-authenticated {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .navbar-brand.not-authenticated img {
+        margin: auto;
+    }
 }

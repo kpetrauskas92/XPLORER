@@ -1,18 +1,17 @@
 <!-- Main Container -->
-<div class="content-wrapper px-4 py-2">
+<div class="content-wrapper px-4">
 
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container-fluid">
 
             <!-- Navbar Brand Logo -->
-            <a class="navbar-brand" 
-                {% if user.is_authenticated %}
-                    href="{% url 'post-list' %}"
-                {% else %}
-                    href="{% url 'index' %}"
-                {% endif %}>
-                <!-- Logo Image -->
+            <a class="navbar-brand {% if not user.is_authenticated %}not-authenticated{% endif %}" 
+            {% if user.is_authenticated %}
+                href="{% url 'post-list' %}"
+            {% else %}
+                href="{% url 'index' %}"
+            {% endif %}>
                 <img src="https://res.cloudinary.com/doz1igebk/image/upload/v1691433983/logo_w0xszf.png" alt="Logo" style="height: 50px;">
             </a>
             
@@ -42,10 +41,9 @@
 
                         <!-- User Dropdown Menu -->
                         <div class="custom-dropdown">
-                            <a>
+                            <a class="nav-profile-pic">
                                 <img src="{{ request.user.profile.picture.url|default:'user-default_acghod' }}" 
-                                     alt="User Profile" 
-                                     style="height: 30px; border-radius: 50%; border-style: solid; border-width: 1px; border-color: green;">
+                                     alt="User Profile">
                             </a>
                             <div class="dropdown-content">
                                 <a href="{% url 'profile' request.user.profile.pk %}">
