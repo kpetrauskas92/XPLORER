@@ -72,6 +72,8 @@ From the Epics, 31 User stories were developed. Each story was assigned a classi
 
 These are the user stories that were completed within the projects first release, by EPIC.
 
+<details><summary>VIEW</summary>
+
 ### **1. User Registration**
 
 * USER STORY [#26](https://github.com/kpetrauskas92/XPLORER/issues/26)
@@ -237,6 +239,8 @@ These are the user stories that were completed within the projects first release
     Secure Logout
   * As a logged-in user, I want to log out of my account so that I can ensure my account's security, especially on shared or public devices.
 
+</details>
+
 ### The Scope Plane
 
 **Features planned:**
@@ -265,6 +269,8 @@ These are the user stories that were completed within the projects first release
   * The platform is fully responsive to ensure optimal user experience across all device types.
 
 ### The Structure Plane
+
+<details><summary>VIEW</summary>
 
 ### 1. User Registration
 
@@ -718,39 +724,107 @@ USER STORY [#51](https://github.com/kpetrauskas92/XPLORER/issues/51)
 * Incorporate a "Logout" button or option on the platform.
 * Implement backend functionality to securely end user sessions upon logout.
 
+</details>
+
 ### The Skeleton Plane
 
 #### Wireframe mock-ups
 
-## Landing Page ![Landing Page Wireframe](media/readme/wireframes/Landing.png)
+The wireframes for the website were produced in Balsamiq. The frames shown below have resolution of 1024px width on left and right side, as it looks the same on smaller devices. The final site varies slightly from the wireframes due to developments that occured during the creation process.
 
-## Home Page ![Home Page Wireframe](media/readme/wireframes/Index.png)
+### Landing Page
 
-## Login/Register ![Login/Register Wireframe](media/readme/wireframes/Login_Register.png)
+<details><summary>VIEW - Wireframe</summary>
 
-## Post Detail ![Post Detail Wireframe](media/readme/wireframes/Post_Detail.png)
+![Landing Page Wireframe](media/readme/wireframes/Landing.png)
 
-## Profile ![Profile Wireframe](media/readme/wireframes/Profile.png)
+</details>
 
-## Search ![Search Wireframe](media/readme/wireframes/Search.png)
+### Login/Register
+
+<details><summary>VIEW - Wireframe</summary>
+
+![Login/Register Wireframe](media/readme/wireframes/Login_Register.png)
+
+</details>
+
+### Home Page
+
+<details><summary>VIEW - Wireframe</summary>
+
+![Home Page Wireframe](media/readme/wireframes/Index.png)
+
+</details>
+
+## Post Detail
+
+<details><summary>VIEW - Wireframe</summary>
+
+![Post Detail Wireframe](media/readme/wireframes/Post_Detail.png)
+
+</details>
+
+## Profile
+
+<details><summary>VIEW - Wireframe</summary>
+
+![Profile Wireframe](media/readme/wireframes/Profile.png)
+
+</details>
+
+## Search
+
+<details><summary>VIEW - Wireframe</summary>
+
+![Search Wireframe](media/readme/wireframes/Search.png)
+
+</details>
 
 #### Database Schema
 
-![Database Schema Diagram]()
+PostgreSQL was used as a database, hosted on ElephantSQL, to store and manage data. ElephantSQL provides a cloud-based PostgreSQL database service, ensuring reliability, scalability, and ease of management.
 
-### The Surface Plane
+* User: Represents the individual users of our application.
 
-#### Design
+* Post: Contains content created by users. Each post has an associated body, an optional image, and is linked to the author (a User). Posts can also be liked by multiple users, resulting in a many-to-many relationship.
 
-##### Typography
+* Comment: Represents comments made on posts. Each comment is linked to an author and a post. Comments also support a hierarchical structure, allowing for nested comments (replies). Like posts, comments can be liked by multiple users.
 
-##### Images
+* UserProfile: Provides extended information about a user, such as their name, bio, date of birth, location, and profile picture. Each user profile is linked to a single user. Additionally, users can follow other users, resulting in a many-to-many relationship between users.
+
+This structure allows for a dynamic and interactive platform where users can create content, engage with other users' content, and establish connections with other users. Diagram created with [dbdiagram.io](https://dbdiagram.io)
+
+![Database Schema Diagram](media/readme/db_diagram.png)
+
+#### The Surface Plane
+
+### Design
+
+XPLORER is a mobile-first social media platform designed to offer an app-like experience on the web. Its design places content at the center, capturing users' attention and reducing distractions.
+
+After setting up the site structure and wireframes, I picked the colors using colormind. For the look, I took inspiration from the colors of the logo and chose simple, distraction-free colors often found in social media platforms. I also checked the colors to ensure they contrast well, making the site easy to read and use for everyone.
+![Colour Palate image](media/readme/color_palette.png)
+
+
+### Typography
+
+For the fonts on XPLORER, I went with the System Font Stack. What's great about these "system" fonts is that they align with what the current operating system uses. This gives the site a familiar and comfortable look for users, as it matches the style they see on their devices daily.
+
+`font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`
 
 ## Features
 
-#### Home page
+#### Home Page
 
-![Home Page]()
+![Home Page](media/readme/Homepage.png)
+
+#### Sign in Page
+
+![Signin Page](media/readme/Signin_page.png)
+
+#### Sign up Page
+
+![Signup Page](media/readme/Signup_page.png)
 
 #### Navigation Bar
 
