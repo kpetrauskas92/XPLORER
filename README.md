@@ -6,6 +6,8 @@ XPLORER is a social media platform built using Django, JavaScript, CSS, and HTML
 
 This platform is a project for the Code Institute Diploma in Software Development with eCommerce. On XPLORER, users can sign up, and create, edit, or delete their own posts and comments. They can also set up and manage their personal profiles. Join XPLORER and connect with a community eager to share and explore.
 
+---
+
 ![Screenshot of homepage](media/readme/landing.gif)
 
 [View the live website on Heroku](https://xplorer-p4-ad2c5b0b95ce.herokuapp.com)
@@ -14,46 +16,50 @@ Please note: To open any links in this document in a new browser tab, please pre
 
 ## Table of Contents
 
-* [User Experience Design (UX)](#ux)
-  * [The Strategy Plane](#the-strategy-plane)
-    * [Site Goals](#site-goals)
-    * [Epics](#epics)
-    * [User Stories](#user-stories)
-  * [The Scope Plane](#the-scope-plane)
-  * [The Structure Plane](#the-structure-plane)
-  * [The Skeleton Plane](#the-skeleton-plane)
-    * [Wireframes](#Wireframe-mockups)
-    * [Database Schema](#database-schema)
-  * [The Surface Plane](#the-surface-plane)
+* [The Strategy Plane](#the-strategy-plane)
+  * [The Sites Ideal User](#the-sites-ideal-user)
+  * [Site Goals](#site-goals)
+  * [Epics](#epics)
+  * [User Stories](#user-stories)
+* [The Scope Plane](#the-scope-plane)
+* [The Structure Plane](#the-structure-plane)
+* [The Skeleton Plane](#the-skeleton-plane)
+  * [Wireframe Mock-ups](#wireframe-mock-ups)
+  * [Database Schema](#database-schema)
+* [The Surface Plane](#the-surface-plane)
+  * [Design](#design)
+  * [Typography](#typography)
 * [Features](#features)
 * [Future Enhancements](#future-enhancements)
-* [Technologies Used](#technologies-used)
 * [Testing](#testing)
-* [Deployment](#deployment)
+* [Bugs](#bugs)
+* [Technologies Used](#technologies-used)
 * [Credits](#credits)
+* [Deployment](#deployment)
+* [Acknowledgements](#acknowledgements)
 
 ## UX
 
-### The Strategy Plane
+## The Strategy Plane
 
 * XPLORER is designed to be a welcoming online hub where users can share, discover, and engage with intriguing experiences and adventures. Not only can members dive into stories shared by peers from every corner of the globe, but they can also show their appreciation by liking or unliking posts. Want to stay updated with your favorite XPLORER storytellers? Simply follow other users to get their latest tales right in your feed.
 
-#### The Sites Ideal User
+### The Sites Ideal User
 
 * Someone who is passionate about sharing their unique travels and experiences.
 * Someone who wants to expand their knowledge of global stories, adventures, and local experiences.
 * Someone who draws inspiration from the shared stories.
 * Someone eager to grow their online presence by consistently sharing, engaging.
 
-#### Site Goals
+### Site Goals
 
 * To provide users with a platform to share their unique adventures and stories.
 * To provide users with a space to connect with and follow fellow explorers.
 * To provide users with a hub to draw inspiration from diverse experiences around the world.
 
-#### Epics
+### Epics
 
-**10 Epics** were created which were then further developed into 31 User Stories. The details on each epic, along with the user stories linked to each one can be found in the project kanban board [here](https://github.com/users/kpetrauskas92/projects/1)
+**10 Epics** were created which were then further developed into 31 User Stories. The details on each epic, along with the user stories linked to each one can be found in the project [kanban board](https://github.com/users/kpetrauskas92/projects/1)
 
 1. User Registration [#1](https://github.com/kpetrauskas92/XPLORER/issues/1)
 2. User Login [#2](https://github.com/kpetrauskas92/XPLORER/issues/2)
@@ -66,11 +72,17 @@ Please note: To open any links in this document in a new browser tab, please pre
 9. User Search [#9](https://github.com/kpetrauskas92/XPLORER/issues/8)
 10. User Logout [#10](https://github.com/kpetrauskas92/XPLORER/issues/11)
 
-### User Stories
+---
+
+[Back to top](<#table-of-contents>)
+
+---
+
+## User Stories
 
 From the Epics, 31 User stories were developed. Each story was assigned a classification of Must-Have, Should-Have, Could-Have or Won't Have. The full list of User Stories, seperated by those completed and those pushed to a future release is available on the project [kanban board](https://github.com/users/kpetrauskas92/projects/1).
 
-These are the user stories that were completed within the projects first release, by EPIC.
+These are all the USER STORIES that were introduced for this project. Sorted by EPIC
 
 <details><summary>VIEW</summary>
 
@@ -241,7 +253,13 @@ These are the user stories that were completed within the projects first release
 
 </details>
 
-### The Scope Plane
+---
+
+[Back to top](<#table-of-contents>)
+
+---
+
+## The Scope Plane
 
 **Features planned:**
 
@@ -268,7 +286,13 @@ These are the user stories that were completed within the projects first release
 * Responsive Design
   * The platform is fully responsive to ensure optimal user experience across all device types.
 
-### The Structure Plane
+---
+
+[Back to top](<#table-of-contents>)
+
+---
+
+## The Structure Plane
 
 <details><summary>VIEW</summary>
 
@@ -726,61 +750,67 @@ USER STORY [#51](https://github.com/kpetrauskas92/XPLORER/issues/51)
 
 </details>
 
-### The Skeleton Plane
+## The Skeleton Plane
 
-#### Wireframe mock-ups
+### Wireframe Mock-ups
 
 The wireframes for the website were produced in Balsamiq. The frames shown below have resolution of 1024px width on left and right side, as it looks the same on smaller devices. The final site varies slightly from the wireframes due to developments that occured during the creation process.
 
-### Landing Page
+**Landing Page**
 
-<details><summary>VIEW - Wireframe</summary>
+<details><summary>View</summary>
 
 ![Landing Page Wireframe](media/readme/wireframes/Landing.png)
 
 </details>
 
-### Login/Register
+**Login/Register**
 
-<details><summary>VIEW - Wireframe</summary>
+<details><summary>View</summary>
 
 ![Login/Register Wireframe](media/readme/wireframes/Login_Register.png)
 
 </details>
 
-### Home Page
+**Home Page**
 
-<details><summary>VIEW - Wireframe</summary>
+<details><summary>View</summary>
 
 ![Home Page Wireframe](media/readme/wireframes/Index.png)
 
 </details>
 
-## Post Detail
+**Post Detail**
 
-<details><summary>VIEW - Wireframe</summary>
+<details><summary>View</summary>
 
 ![Post Detail Wireframe](media/readme/wireframes/Post_Detail.png)
 
 </details>
 
-## Profile
+**Profile**
 
-<details><summary>VIEW - Wireframe</summary>
+<details><summary>View</summary>
 
 ![Profile Wireframe](media/readme/wireframes/Profile.png)
 
 </details>
 
-## Search
+**Search**
 
-<details><summary>VIEW - Wireframe</summary>
+<details><summary>View</summary>
 
 ![Search Wireframe](media/readme/wireframes/Search.png)
 
 </details>
 
-#### Database Schema
+---
+
+[Back to top](<#table-of-contents>)
+
+---
+
+### Database Schema
 
 PostgreSQL was used as a database, hosted on ElephantSQL, to store and manage data. ElephantSQL provides a cloud-based PostgreSQL database service, ensuring reliability, scalability, and ease of management.
 
@@ -796,9 +826,15 @@ This structure allows for a dynamic and interactive platform where users can cre
 
 ![Database Schema Diagram](media/readme/db_diagram.png)
 
-#### The Surface Plane
+---
 
-### Design
+[Back to top](<#table-of-contents>)
+
+---
+
+### The Surface Plane
+
+## Design
 
 XPLORER is a mobile-first social media platform designed to offer an app-like experience on the web. Its design places content at the center, capturing users' attention and reducing distractions.
 
@@ -810,6 +846,12 @@ After setting up the site structure and wireframes, I picked the colors using co
 For the fonts on XPLORER, I went with the System Font Stack. What's great about these "system" fonts is that they align with what the current operating system uses. This gives the site a familiar and comfortable look for users, as it matches the style they see on their devices daily.
 
 `font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`
+
+---
+
+[Back to top](<#table-of-contents>)
+
+---
 
 ## Features
 
@@ -919,81 +961,245 @@ XPLORER prioritizes mobile responsiveness, ensuring that users on-the-go have a 
 
 ![Mobile View](media/readme/Mobile.gif)
 
+---
+
+[Back to top](<#table-of-contents>)
+
+---
+
 ## Future Enhancements
+
+XPLORER has always been about pushing the boundaries and enhancing the user experience. As i look forward to the future, there are several functionalities and features that i aim to integrate. While the current platform serves as a robust foundation, the following are some of the enhancements that are on my horizon:
+
+* Notifications System: Introducing a real-time notifications system to keep users updated on interactions related to their posts, comments, and more. This will enhance user engagement and ensure that they're always in the loop.
+
+* Instant Chat: This would enable direct messaging between users, fostering deeper connections within the XPLORER community.
+
+* Email Verification: To further secure user accounts and ensure authenticity, an email verification would be implemented. This would be mandatory for new registrations, adding an additional layer of security.
+
+* Profile Deletion: Respecting user data and privacy is paramount. Straightforward profile deletion option is needed, allowing users to remove all their data from the platform with ease.
+
+* Login via Social Networks: Extending the ease of access, integrating login functionalities via popular social networks such as Google, Facebook, and Twitter. This would streamline the registration and login processes, making it quicker for users to dive into XPLORER.
+
+While some of these features might leverage existing technologies and apps, others will require detailed development from the ground up.
 
 ## Testing
 
-#### Validator Testing
+Testing documentation is here: [Testing](./TESTING.md)
 
-#### Notable Bugs
+## Bugs
 
-#### Technologies Used
+Throughout the development journey of XPLORER, the path I treaded wasn't without its challenges. Like any ambitious project I've undertaken, I faced an array of bugs, from fleeting glitches to more profound functional disparities. But rather than seeing these as mere obstacles, I embraced them as opportunities for growth and refinement.
+
+Each bug I encountered became a unique learning curve. They compelled me to delve deeper into the code, grasp the intricacies of the frameworks and libraries I was using, and at times, re-evaluate and restructure my initial strategies. This wasn't just about fixing issues; it was a holistic process of understanding, adapting, and refining.
+
+These challenges also honed my problem-solving and analytical skills. For every bug I faced, I meticulously dissected the problem, explored potential solutions, and implemented the fixes, ensuring that every aspect of XPLORER met the standards I had envisioned.
+
+In reflection, while these bugs were temporary setbacks, they shaped my journey, refined my skills, and solidified my commitment to delivering a platform that stands as a testament to my dedication.
+
+Altough there is a specific bug that was identified related to the auto-play feature on iOS devices. The platform's video background, which is designed to auto-play upon page load, doesn't operate as intended on these devices.
+
+![Bug](media/readme/bug1.png)
+
+The solution was found to be relatively straightforward for iOS Safari: by adding the playsinline attribute, the auto-play issue was addressed, ensuring the video background functions properly across a wider range of devices.
+
+![Bug Fix](media/readme/bug1fix.png)
+
+While the auto-play feature for the video background has been optimized for iOS devices with the addition of the playsinline attribute, there are still potential scenarios where the video might not auto-play. Specifically, if a device is in low power mode or if certain security settings are in place, the auto-play functionality might be hindered. This behavior has been noted in Apple's developer forums. It serves as a reminder of the complexities and nuances in ensuring consistent multimedia playback across various device settings and conditions.
+
+---
+
+[Back to top](<#table-of-contents>)
+
+---
+
+## Technologies Used
+
+### Front-End Technologies
+
+* [HTML5](https://html.spec.whatwg.org/) - Provides the content and structure for the website.
+* [CSS3](https://www.w3.org/Style/CSS/Overview.en.html) - Styles the website's elements and layout.
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Adds interactivity and functionality to the website.
+* [Bootstrap 5](https://getbootstrap.com/) - A front-end framework for responsive and attractive design.
+* [jQuery](https://jquery.com/) - A JavaScript library for simplifying DOM manipulation.
+
+### Back-End Technologies
+
+* [Python](https://www.python.org/) - The main programming language for the back-end.
+* [Django Framework](https://www.djangoproject.com/) - A high-level Python framework for building web applications.
+
+### Cloud and Deployment
+
+* [CodeAnywhere](https://codeanywhere.com/) - A cloud IDE for development.
+* [GitHub](https://github.com/) - Version control and code hosting platform.
+* [Git](https://git-scm.com/) - Version control system for tracking changes in code.
+* [Cloudinary](https://cloudinary.com/) - Used for image and video management in the cloud.
+* [ElephantSQL](https://www.elephantsql.com/) - Hosts PostgreSQL databases in the cloud.
+* [Heroku](https://www.heroku.com/) - Cloud platform for deploying and managing applications.
+
+### Design and Visualization
+
+* [Balsamiq](https://balsamiq.com/) - Tool for creating wireframes and mockups.
+* [Looka](https://looka.com/) - Used for creating the website's logo.
+* [Favicon.io](https://favicon.io/) - Generates favicon files for the website.
+* [Ezgif](https://ezgif.com/) - Creates GIF files for various uses.
+
+### Additional Libraries and Tools
+
+* [Select2](https://select2.org/) - Enhances select boxes with search functionality.
 
 #### Packages Used
 
-#### Resources Used
+`asgiref==3.7.2`
+`cloudinary==1.33.0`
+`crispy-bootstrap4==2022.1`
+`dj-database-url==0.5.0`
+`dj3-cloudinary-storage==0.0.6`
+`Django==3.2.20`
+`django-allauth==0.54.0`
+`django-crispy-forms==2.0`
+`gunicorn==21.2.0`
+`oauthlib==3.2.2`
+`psycopg2==2.9.6`
+`PyJWT==2.8.0`
+`pylint-django==2.5.3`
+`pylint-plugin-utils==0.8.2`
+`python3-openid==3.2.0`
+`pytz==2023.3`
+`requests-oauthlib==1.3.1`
+`sqlparse==0.4.4`
+`urllib3==1.26.15`
+
+---
+
+[Back to top](<#table-of-contents>)
+
+---
+
+## Credits
+
+### Knowledge & Ideas
+
+* [StackOverflow](https://stackoverflow.com/) Serious amount of information gathered from here.
+* MattBCoding [Readme](https://github.com/MattBCoding/pp4-the-pantry) and, Gareth-McGirr [Readme](https://github.com/Gareth-McGirr/Portfolio-Project-4-SizzleAndSteak)
+* [Build a Social Media Website](https://dev.to/shubham1710/series/10539) Some ideas on how to build social media platform were gathered from Kumar Shubham `https://github.com/shubham1710`
+* [Django Ajax Like](https://medium.com/@nishalk25121999/how-to-make-a-like-button-using-django-ajax-d2db38e6d2f8) Ideas found for Ajax like button
+
+### Media
+
+* [Pexels](https://www.pexels.com/) Video backgroud and images
 
 ## Deployment
 
 The site was deployed via Heroku, and the live link can be found here - [XPLORER](https://xplorer-p4-ad2c5b0b95ce.herokuapp.com)
 
-### Project Deployment
+### Project Deployment: Heroku
 
-To deploy the project through Heroku I followed these steps:
+To deploy the project on Heroku, follow the steps below:
 
-* Sign up / Log in to [Heroku](https://www.heroku.com/)
-* From the main Heroku Dashboard page select 'New' and then 'Create New App'
-* Give the project a name - I entered xplorer-p4 and select a suitable region, then select create app. The name for the app must be unique.
-* This will create the app within Heroku and bring you to the deploy tab. From the submenu at the top, navigate to the resources tab.
-* Add the database to the app, in the add-ons section search for 'Heroku Postgres', select the package that appears and add 'Heroku Postgres' as the database
-* Navigate to the setting tab, within the config vars section copy the DATABASE_URL to the clipboard for use in the Django configuration.
-* Within the django app repository create a new file called env.py - within this file import the os library and set the environment variable for the DATABASE_URL pasting in the address copied from Heroku. The line should appear as os.environ["DATABASE_URL"]= "Paste the link in here"
-* Add a secret key to the app using os.environ["SECRET_KEY"] = "your secret key goes here"
-* Add the secret key just created to the Heroku Config Vars as SECRET_KEY for the KEY value and the secret key value you created as the VALUE
-* In the settings.py file within the django app, import Path from pathlib, import os and import dj_database_url
-* insert the line if os.path.isfile("env.py"): import env
-* remove the insecure secret key that django has in the settings file by default and replace it with SECRET_KEY = os.environ.get('SECRET_KEY')
-* replace the databases section with DATABASES = { 'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))} ensure the correct indentation for python is used.
-* In the terminal migrate the models over to the new database connection
-* Navigate in a browser to cloudinary, log in, or create an account and log in.
-* From the dashboard - copy the CLOUDINARY_URL to the clipboard
-* in the env.py file created earlier - add os.environ["CLOUDINARY_URL"] = "paste in the Url copied to the clipboard here"
-* In Heroku, add the CLOUDINARY_URL and value copied to the clipboard to the config vars
-* Also add the KEY - DISABLE_COLLECTSTATIC with the Value - 1 to the config vars
-* this key value pair must be removed prior to final deployment
-* Add the cloudinary libraries to the list of installed apps, the order they are inserted is important, 'cloudinary_storage' goes above 'django.contrib.staitcfiles' and 'cloudinary' goes below it.
-* in the Settings.py file - add the STATIC files settings - the url, storage path, directory path, root path, media url and default file storage path.
-* Link the file to the templates directory in Heroku TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-* Change the templates directory to TEMPLATES_DIR - 'DIRS': [TEMPLATES_DIR]
-* Add Heroku to the ALLOWED_HOSTS list the format will be the app name given in Heroku when creating the app followed by .herokuapp.com
-* In your code editor, create three new top level folders, media, static, templates
-* Create a new file on the top level directory - Procfile
-* Within the Procfile add the code - web: guincorn PROJECT_NAME.wsgi
-* In the terminal, add the changed files, commit and push to GitHub
-* In Heroku, navigate to the deployment tab and deploy the branch manually - watch the build logs for any errors.
-* Heroku will now build the app for you. Once it has completed the build process you will see a 'Your App Was Successfully Deployed' message and a link to the app to visit the live site.
+#### 1. **Initial Setup on Heroku:**
 
-#### Forking the repository
+* Sign up or log in to [Heroku](https://www.heroku.com/).
 
-By forking the GitHub Repository you can make a copy of the original repository to view or change without it effecting the original repository
-This can be done by
-    *Log into GitHub or create an account.
-    * Locate the repository at <https://github.com/kpetrauskas92/XPLORER> .
-    *At the top of the repository, on the right side of the page, select "Fork" from the buttons available.
-    * A copy of the repository should now be created in your own repository.
+* On the main Heroku Dashboard, click 'New' > 'Create New App'.
+* Name your project (e.g., `xplorer-p4`). Remember, the app name must be unique.
+* Choose a suitable region and then click 'Create app'.
 
-#### Create a clone of this repository
+#### 2. **Setting Up the Database:**
 
-Creating a clone enables you to make a copy of the repository at that point in time - this lets you run a copy of the project locally:
-This can be done by:
+* Navigate to the 'Resources' tab from the submenu.
 
-* Navigate to <https://github.com/kpetrauskas92/XPLORER>
-* click on the arrow on the green code button at the top of the list of files
-* select the clone by https option and copy the URL it provides to the clipboard
-* navigate to your code editor of choice and within the terminal change the directory to the location you want to clone the repository to.
-* type 'git clone' and paste the https link you copied from github
-* press enter and git will clone the repository to your local machine
+* In the 'Add-ons' section, search for 'Heroku Postgres'.
+* Select and add 'Heroku Postgres' as the database.
+* Go to the 'Settings' tab, and within the 'Config Vars' section, copy the `DATABASE_URL` for later use.
 
-### Acknowledgements
+#### 3. **Configuring Django App for Heroku:**
+
+* In your Django app repository, create a new file named `env.py`.
+  * Import the `os` library.
+  * Set the environment variable for `DATABASE_URL` (paste the address copied from Heroku).
+  * Add a secret key: `os.environ["SECRET_KEY"] = "your_secret_key"`.
+
+* Back in Heroku, add the secret key you just created to the 'Config Vars' (KEY: `SECRET_KEY`, VALUE: your secret key).
+* Modify the `settings.py` in your Django app:
+  * Import necessary libraries (`Path`, `os`, `dj_database_url`).
+  * Use `if os.path.isfile("env.py"): import env`.
+  * Replace the default secret key with `SECRET_KEY = os.environ.get('SECRET_KEY')`.
+  * Update the databases section to connect to the Heroku Postgres: `DATABASES = {'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))}`.
+  * Migrate models to the new database using the terminal.
+
+#### 4. **Setting Up Cloudinary:**
+
+* Visit [Cloudinary](https://cloudinary.com/) and either sign in or create an account.
+
+* Copy the `CLOUDINARY_URL` from the dashboard.
+* In the `env.py` file, add `os.environ["CLOUDINARY_URL"] = "copied_url"`.
+* Add the `CLOUDINARY_URL` to the Heroku 'Config Vars'.
+* Add `DISABLE_COLLECTSTATIC` with value `1` to the 'Config Vars' (this should be removed before final deployment).
+* Modify `settings.py` to configure Cloudinary:
+  * Add the Cloudinary libraries to `INSTALLED_APPS` (order matters: `'cloudinary_storage'` above `'django.contrib.staticfiles'` and `'cloudinary'` below).
+  * Define STATIC files settings (URL, storage path, directory path, root path, media URL, and default file storage path).
+
+#### 5. **Final Configurations:**
+
+* Link your templates directory in Heroku: `TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')`.
+
+* Update the templates directory to `TEMPLATES_DIR`: `'DIRS': [TEMPLATES_DIR]`.
+* Add your Heroku app to `ALLOWED_HOSTS` (format: `app_name.herokuapp.com`).
+* Create three top-level directories in your project: `media`, `static`, `templates`.
+* Add a `Procfile` at the top level and write: `web: gunicorn PROJECT_NAME.wsgi`.
+* Commit and push your changes to GitHub.
+
+#### 6. **Deploy on Heroku:**
+
+* In Heroku, go to the 'Deploy' tab.
+
+* Deploy the branch manually and monitor the build logs for any issues.
+* Once the build completes, you'll see a success message and a link to view the live site.
+
+Remember to replace placeholders like `your_secret_key`, `copied_url`, and `PROJECT_NAME` with actual values relevant to your project.
+
+#### Forking the Repository
+
+Forking the GitHub Repository allows you to have a copy of the original repository. This enables you to view or make changes without affecting the original content.
+
+To fork the repository:
+
+1. Log into [GitHub](https://github.com/) or create an account.
+2. Navigate to the repository: [XPLORER](https://github.com/kpetrauskas92/XPLORER).
+3. At the top-right corner of the repository page, click on the "Fork" button.
+4. A copy of the repository will now be available in your account.
+
+#### Cloning the Repository
+
+Cloning creates a local copy of the repository on your machine, allowing you to run and modify the project locally.
+
+To clone the repository:
+
+1. Visit the [XPLORER repository](https://github.com/kpetrauskas92/XPLORER).
+2. Click on the green "Code" button located at the top of the file list.
+3. Choose the "Clone with HTTPS" option and copy the provided URL to your clipboard.
+4. Open your preferred code editor or terminal.
+5. Change your current directory to the location where you want to clone the repository.
+6. Type `git clone`, then paste the URL you copied.
+7. Press `Enter`, and the repository will be cloned to your specified directory.
+
+## Acknowledgements
 
 I'd like to thank the following:
+
+My family, who probably forgot what I look like due to the endless hours I poured into this project.
+
+To the Internet, for generously bestowing upon me a never-ending sea of free information. Who knew there were so many ways to debug a single error?
+
+And to Elon Musk, for 'gifting' the world with the letter "X". Because, let's face it, without that letter, where would we all be?
+
+Mentors [Daisy McGirr](https://github.com/Daisy-McG) for jumping in at the last second to help me out. And [Narender](https://github.com/mr-narender)
+
+---
+
+[Back to top](<#table-of-contents>)
+
+---
+
+© Project developed by Karolis P. for Code Institute 2023
