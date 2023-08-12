@@ -23,7 +23,7 @@ urlpatterns = [
     path('', include('landing.urls')),
     path('account/', include('allauth.urls')),
     path('social/', include('social.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 handler400 = 'landing.views.error_400'
 handler403 = 'landing.views.error_403'

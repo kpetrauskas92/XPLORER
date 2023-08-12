@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from cloudinary.uploader import destroy
 from django.core.files import File
 from django.conf import settings
 from django.db.models.signals import post_save
@@ -21,6 +22,13 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name='post_author'
     )
     likes = models.ManyToManyField(User, blank=True, related_name='likes')
+
+    def delete(self, *args, **kwargs):
+        if self.image:
+            # Extract the public_id from the image's path
+            public_id = self.image.public_id
+            destroy(public_id)
+        super(Post, self).delete(*args, **kwargs)
 
 
 # Comment: Represents a comment on a post. Each comment has text content,

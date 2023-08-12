@@ -191,14 +191,31 @@ footer i:hover {
 }
 
 .post-body {
-    font-size: 1.1em;
-    margin-top: 10px;
+    font-family: 'Georgia', serif;
+    font-size: 1em;
+    line-height: 1.5;
+    /* margin-bottom: 10px;
+    padding-bottom:5px; */
     text-decoration: none;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-body:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
 }
 
 .post-body a {
     text-decoration: none;
     color: inherit;
+}
+
+.post-body a:hover {
+    /* text-decoration: underline; */
+    color: #0d7136;
 }
 
 .image-wrapper {
@@ -224,6 +241,7 @@ footer i:hover {
    ===================================== */
 
 .like-btn {
+    font-size: 1.2rem;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -236,6 +254,11 @@ footer i:hover {
 .like-btn.liked i {
     color: #0f5f08;
 }
+
+.comment-btn {
+    font-size: 1.2rem;
+}
+
 
 /* =====================================
    COMMENTS STYLES

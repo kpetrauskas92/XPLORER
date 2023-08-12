@@ -23,7 +23,6 @@
                     </a>
                     <p class="post-text mb-0">
                         <a class="text-primary" href="{% url 'profile' post.author.profile.pk %}">{{ post.author }}</a>
-
                     </p>
                     <span class="ms-1 posted-on-text">{{ post.created_on }}</span>
                 </div>
@@ -34,11 +33,13 @@
                     </div>
                 {% endif %}
             </div>
+            <div class="post-body mt-2">
 
-            {% if post.image %}
-                <img src="{{ post.image.url }}" class="post-image img-fluid mt-3"/>
-            {% endif %}    
-            <p class="border-bottom text-center pb-2">{{ post.body }}</p>
+                {% if post.image %}
+                    <img src="{{ post.image.url }}" class="post-image img-fluid mt-3"/>
+                {% endif %}    
+                <p class="text-center p-2">{{ post.body }}</p>
+            </div>
             
             <div class="d-flex flex-row">
                 <!-- Likes button -->
