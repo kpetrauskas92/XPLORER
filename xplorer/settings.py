@@ -30,8 +30,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
+# X_FRAME_OPTIONS = 'ALLOW-FROM https://ui.dev/amiresponsive'
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
@@ -52,6 +53,8 @@ AUTHENTICATION_BACKENDS = [
 
 LOGIN_REDIRECT_URL = 'post-list'
 ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_UNIQUE_EMAIL = False
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -111,12 +114,6 @@ WSGI_APPLICATION = 'xplorer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
@@ -162,8 +159,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

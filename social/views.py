@@ -12,19 +12,29 @@ from django.views.generic.edit import UpdateView, DeleteView
 
 
 class PostListView(LoginRequiredMixin, View):
+    """
+    PostListView:
+    - Displays a list of posts from users that the current user follows.
+    - Allows the current user to create a new post.
+    """
 
     def get_followed_users_posts(self, user):
+        """
+        .get_followed_users_posts(user):
+        - Retrieves the latest post from each user that the user follows.
+        - Returns a list of posts sorted by creation time in descending order.
+        """
         followed_profiles = UserProfile.objects.filter(followers__in=[user])
         followed_users = [profile.user for profile in followed_profiles]
 
-        # get the latest post from each followed user
         posts = []
         for user in followed_users:
-            latest_post = Post.objects.filter(author=user).order_by('-created_on').first()
+            latest_post = Post.objects.filter(
+                author=user
+            ).order_by('-created_on').first()
             if latest_post is not None:
                 posts.append(latest_post)
 
-        # sort the posts by creation time
         posts.sort(key=lambda post: post.created_on, reverse=True)
         return posts
 
@@ -44,7 +54,10 @@ class PostListView(LoginRequiredMixin, View):
             new_post = form.save(commit=False)
             new_post.author = request.user
             new_post.save()
-            messages.success(request, 'Your post has been created! See it in your Profile 🎉')
+            messages.success(
+                request,
+                'Your post has been created! See it in your Profile 🎉'
+            )
             return redirect('post-list')
 
         posts = self.get_followed_users_posts(request.user)
@@ -53,6 +66,7 @@ class PostListView(LoginRequiredMixin, View):
             'form': form,
         }
         return render(request, 'post_list.html', context)
+
 
 
 class PostDetailView(LoginRequiredMixin, View):
