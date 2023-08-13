@@ -1,3 +1,5 @@
+{% load static %}
+
 <!-- Main Container -->
 <div class="content-wrapper px-4">
 
@@ -12,7 +14,7 @@
             {% else %}
                 href="{% url 'index' %}"
             {% endif %}>
-                <img src="https://res.cloudinary.com/doz1igebk/image/upload/v1691433983/logo_w0xszf.png" alt="Logo" style="height: 50px;">
+                <img src="{% static 'media/logo.webp' %}" alt="Logo" style="height: 50px;">
             </a>
             
             <!-- Navbar Contents -->

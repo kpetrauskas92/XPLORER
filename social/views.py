@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 from django.contrib import messages
 from django.views import View
+from django.core.paginator import Paginator
 from .models import Post, Comment, UserProfile
 from .forms import PostForm, CommentForm, UserProfileForm
 from django.views.generic.edit import UpdateView, DeleteView
@@ -18,31 +19,33 @@ class PostListView(LoginRequiredMixin, View):
     - Allows the current user to create a new post.
     """
 
-    def get_followed_users_posts(self, user):
+    def get_newsfeed_posts(self, user):
         """
-        .get_followed_users_posts(user):
-        - Retrieves the latest post from each user that the user follows.
+        .get_newsfeed_posts(user):
+        - Retrieves posts from the user and those they follow.
         - Returns a list of posts sorted by creation time in descending order.
         """
         followed_profiles = UserProfile.objects.filter(followers__in=[user])
         followed_users = [profile.user for profile in followed_profiles]
 
-        posts = []
-        for user in followed_users:
-            latest_post = Post.objects.filter(
-                author=user
-            ).order_by('-created_on').first()
-            if latest_post is not None:
-                posts.append(latest_post)
+        # Include posts from the user as well
+        followed_users.append(user)
 
-        posts.sort(key=lambda post: post.created_on, reverse=True)
+        # Get latest posts from followed users and the user themselves
+        posts = Post.objects.filter(author__in=followed_users).order_by('-created_on')
+
         return posts
 
     def get(self, request, *args, **kwargs):
-        posts = self.get_followed_users_posts(request.user)
+        posts = self.get_newsfeed_posts(request.user)
+        paginator = Paginator(posts, 3)  # 3 posts per page
+
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+
         form = PostForm()
         context = {
-            'post_list': posts,
+            'page_obj': page_obj,
             'form': form,
         }
         return render(request, 'post_list.html', context)
@@ -56,17 +59,19 @@ class PostListView(LoginRequiredMixin, View):
             new_post.save()
             messages.success(
                 request,
-                'Your post has been created! See it in your Profile 🎉'
+                'Your post has been created! 🎉'
             )
             return redirect('post-list')
 
-        posts = self.get_followed_users_posts(request.user)
+        posts = self.get_newsfeed_posts(request.user)
+        paginator = Paginator(posts, 3)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
         context = {
-            'post_list': posts,
+            'page_obj': page_obj,
             'form': form,
         }
         return render(request, 'post_list.html', context)
-
 
 
 class PostDetailView(LoginRequiredMixin, View):

@@ -12,7 +12,7 @@ from .views import (
     RemoveFollower,
     AddLike,
     AddCommentLike,
-    UserSearch
+    UserSearch,
 )
 
 urlpatterns = [
