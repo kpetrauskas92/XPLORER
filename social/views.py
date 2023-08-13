@@ -21,11 +21,6 @@ class PostListView(LoginRequiredMixin, View):
     """
 
     def get_newsfeed_posts(self, user):
-        """
-        .get_newsfeed_posts(user):
-        - Retrieves posts from the user and those they follow.
-        - Returns a list of posts sorted by creation time in descending order.
-        """
         followed_profiles = UserProfile.objects.filter(followers__in=[user])
         followed_users = [profile.user for profile in followed_profiles]
 
@@ -76,6 +71,11 @@ class PostListView(LoginRequiredMixin, View):
 
 
 class PostDetailView(LoginRequiredMixin, View):
+    """
+    PostDetailView:
+    - Displays the details of a specific post.
+    - Allows users to view comments and add new ones to the post.
+    """
     def get(self, request, pk, *args, **kwargs):
         post = Post.objects.get(pk=pk)
         form = CommentForm()
@@ -99,7 +99,8 @@ class PostDetailView(LoginRequiredMixin, View):
             new_comment.save()
             messages.success(request, 'Your comment has been added!')
 
-        comments = Comment.objects.filter(post=post, parent=None).order_by('-created_on')
+        comments = Comment.objects.filter(post=post, parent=None)\
+                          .order_by('-created_on')
         context = {
             'post': post,
             'form': form,
@@ -110,6 +111,11 @@ class PostDetailView(LoginRequiredMixin, View):
 
 
 class CommentReplyView(LoginRequiredMixin, View):
+    """
+    CommentReplyView:
+    - Allows users to reply to specific comments on a post.
+    - Associates the new comment with the parent comment, post, and the user.
+    """
     def post(self, request, post_pk, pk, *args, **kwargs):
         post = Post.objects.get(pk=post_pk)
         parent_comment = Comment.objects.get(pk=pk)
@@ -126,6 +132,12 @@ class CommentReplyView(LoginRequiredMixin, View):
 
 
 class PostEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """
+    PostEditView:
+    - Allows post authors to edit their own posts.
+    - Uses the UpdateView to provide form handling for editing the post's body.
+    - Tests if the user trying to edit the post is indeed its author.
+    """
     model = Post
     fields = ['body']
     template_name = 'post_edit.html'
@@ -143,6 +155,13 @@ class PostEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return super().form_valid(form)
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """
+    PostDeleteView:
+    - Allows post authors to delete their own posts.
+    - Uses the DeleteView for deleting posts and redirects
+    - to the post list after deletion.
+    - Tests if the user trying to delete the post is indeed its author.
+    """
     model = Post
     template_name = 'post_delete.html'
     success_url = reverse_lazy('post-list')
@@ -157,6 +176,13 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """
+    CommentDeleteView:
+    - Allows comment authors to delete their own comments.
+    - Uses the DeleteView for deleting comments and redirects
+    - to the post detail after deletion.
+    - Tests if the user trying to delete the comment is indeed its author.
+    """
     model = Comment
     template_name = 'comment_delete.html'
 
@@ -174,6 +200,14 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 class ProfileView(View):
+    """
+    ProfileView:
+    - Displays details of a specific user's profile.
+    - Shows the user's posts, followers, and checks
+    - if the current user is following the profile.
+    - Calculates and displays the age of the user if the
+    - date of birth is provided.
+    """
     def get(self, request, pk, *args, **kwargs):
         profile = UserProfile.objects.get(user=pk)
         user = profile.user
@@ -210,6 +244,12 @@ class ProfileView(View):
 
 
 class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """
+    ProfileEditView:
+    - Allows users to edit their own profiles.
+    - Uses the UpdateView to provide form handling for editing the profile.
+    - Tests if the user trying to edit the profile is indeed its owner.
+    """
     model = UserProfile
     form_class = UserProfileForm
     template_name = 'profile_edit.html'
@@ -228,6 +268,12 @@ class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 
 class ProfileDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """
+    ProfileDeleteView:
+    - Allows users to delete their own profiles.
+    - Upon profile deletion, logs out the user and deletes the user account.
+    - Uses the DeleteView for deleting profiles.
+    """
     model = UserProfile
     template_name = 'profile_delete.html'
     success_url = reverse_lazy('index')
@@ -246,6 +292,10 @@ class ProfileDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 class AddFollower(LoginRequiredMixin, View):
+    """
+    AddFollower:
+    - Allows users to follow another user's profile.
+    """
     def post(self, request, pk, *args, **kwargs):
         profile = UserProfile.objects.get(pk=pk)
         profile.followers.add(request.user)
@@ -253,6 +303,10 @@ class AddFollower(LoginRequiredMixin, View):
         return redirect('profile', pk=profile.pk)
 
 class RemoveFollower(LoginRequiredMixin, View):
+    """
+    RemoveFollower:
+    - Allows users to unfollow a profile they are currently following.
+    """
     def post(self, request, pk, *args, **kwargs):
         profile = UserProfile.objects.get(pk=pk)
         profile.followers.remove(request.user)
@@ -261,6 +315,12 @@ class RemoveFollower(LoginRequiredMixin, View):
 
 
 class AddLike(LoginRequiredMixin, View):
+    """
+    AddLike:
+    - Allows users to like or unlike a post.
+    - Toggles the like status and returns the current number of
+    - likes and the like status.
+    """
     def post(self, request, pk, *args, **kwargs):
         post = get_object_or_404(Post, pk=pk)
         user = request.user
@@ -278,6 +338,12 @@ class AddLike(LoginRequiredMixin, View):
         })
 
 class AddCommentLike(LoginRequiredMixin, View):
+    """
+    AddCommentLike:
+    - Allows users to like or unlike a comment.
+    - Toggles the like status and returns the current number of
+    - likes and the like status.
+    """
     def post(self, request, comment_pk, *args, **kwargs):
         comment = Comment.objects.get(pk=comment_pk)
         user = request.user
@@ -296,6 +362,11 @@ class AddCommentLike(LoginRequiredMixin, View):
 
 
 class UserSearch(View):
+    """
+    UserSearch:
+    - Enables users to search for other users based on their username.
+    - Returns a list of profiles that match the search query.
+    """
     def get(self, request, *args, **kwargs):
         query = self.request.GET.get('query')
         profile_list = UserProfile.objects.filter(

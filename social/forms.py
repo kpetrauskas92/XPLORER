@@ -9,6 +9,7 @@ from .models import Post, Comment, UserProfile
 class PostForm(forms.ModelForm):
     body = forms.CharField(
         label='',
+        max_length=100,
         widget=forms.Textarea(attrs={
             'rows': '2',
             'placeholder': 'Post your adventure...'
@@ -39,6 +40,7 @@ class CommentForm(forms.ModelForm):
 # including details like name, bio, DOB, location, and profile picture.
 class UserProfileForm(forms.ModelForm):
     picture = forms.ImageField(label='Profile Photo')
+
     class Meta:
         model = UserProfile
         fields = ['name', 'bio', 'date_of_birth', 'location', 'picture']

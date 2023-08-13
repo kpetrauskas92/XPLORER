@@ -109,21 +109,20 @@ The following sections provide a comprehensive overview of the manual testing st
 
 **Status:** Pass
 
-### d. Setting Profile Preferences
+### e. Profile Deletion
 
-**Test Case:** Set user profile preferences.
+**Test Case:** Delete user profile.
 
 **Steps:**
-
 - Log in with a registered account.
 - Navigate to the user's profile page.
-- Access the "Edit" or "Preferences" section.
-- Customize profile and platform preferences (e.g., profile image).
-- Save the changes.
+- Access the "Settings" section.
+- Choose the "Delete Profile" option.
+- Confirm the deletion.
 
-**Expected Result:** The selected profile preferences should be saved and applied.
+**Expected Result:** The user's profile and associated data should be permanently deleted.
 
-**Actual Result:** Profile preferences successfully set and applied.
+**Actual Result:** Profile and associated data successfully deleted.
 
 **Status:** Pass
 
@@ -453,3 +452,29 @@ The following sections provide a comprehensive overview of the manual testing st
 **Actual Result:** JavaScript interactions and CSS styling are consistent and accurate across different browsers.
 
 **Status:** Pass
+
+# CI Python Linter
+
+Pylint is a highly valuable tool for maintaining a consistent and clean codebase. It enforces coding standards and helps developers identify potential issues, such as syntax errors, semantic discrepancies, or even certain complex areas that could be simplified. By using Pylint, a team ensures that all its members adhere to a common set of standards, which results in easier-to-read, maintainable, and bug-free code.
+
+## Forms
+
+![forms](static/media/testing/forms.webp)
+
+## Models
+
+![models](static/media/testing/models.webp)
+
+## Models
+
+![urls](static/media/testing/urls.webp)
+
+## Models
+
+![urls](static/media/testing/views.webp)
+
+# Site Speed and Accessibility
+
+## GTMetrix
+
+![urls](static/media/testing/GTMetrix.webp)

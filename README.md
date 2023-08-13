@@ -1,4 +1,4 @@
-![Logo](media/readme/logo.png)
+![Logo](static/media/readme/misc/logo.webp)
 
 ## Introduction
 
@@ -8,7 +8,7 @@ This platform is a project for the Code Institute Diploma in Software Developmen
 
 ---
 
-![Screenshot of homepage](media/readme/landing.gif)
+![Screenshot of homepage](static/media/readme/gifs/landing.gif)
 
 [View the live website on Heroku](https://xplorer-p4-ad2c5b0b95ce.herokuapp.com)
 
@@ -95,12 +95,12 @@ These are all the USER STORIES that were introduced for this project. Sorted by 
 
 * USER STORY [#28](https://github.com/kpetrauskas92/XPLORER/issues/28)
 
-    Verification
+    Verification *Won't Have*
   * As a registered user, I want my profile to be verified so that other users can trust the authenticity of my profile.
 
 * USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 
-    Social Media Integration
+    Social Media Integration *Won't Have*
   * As a user, I want to register on the platform using my social media accounts so that I can simplify the sign-up process and quickly join the community.
 
 ### **2. User Login**
@@ -112,7 +112,7 @@ These are all the USER STORIES that were introduced for this project. Sorted by 
 
 * USER STORY [#31](https://github.com/kpetrauskas92/XPLORER/issues/31)
 
-    Forgotten Password
+    Forgotten Password *Won't Have*
   * As a user who has forgotten my password, I want to reset it so that I can regain access to my account.
 
 * USER STORY [#32](https://github.com/kpetrauskas92/XPLORER/issues/32)
@@ -161,7 +161,7 @@ These are all the USER STORIES that were introduced for this project. Sorted by 
 
 * USER STORY [#39](https://github.com/kpetrauskas92/XPLORER/issues/39)
 
-    Tagging in Posts
+    Tagging in Posts *Won't Have*
   * As a user, I want to add tags to my post so that it can be more discoverable to users interested in that topic.
 
 * USER STORY [#41](https://github.com/kpetrauskas92/XPLORER/issues/41)
@@ -183,7 +183,7 @@ These are all the USER STORIES that were introduced for this project. Sorted by 
 
 * USER STORY [#45](https://github.com/kpetrauskas92/XPLORER/issues/45)
 
-    View Liked Content
+    View Liked Content *Won't Have*
   * As a user, I want to view posts and comments I've previously liked so that I can revisit content that I enjoyed or found valuable.
 
 ### **6. Comment Reply**
@@ -217,7 +217,7 @@ These are all the USER STORIES that were introduced for this project. Sorted by 
 
 * USER STORY [#48](https://github.com/kpetrauskas92/XPLORER/issues/48)
 
-    Customize News Feed
+    Customize News Feed *Won't Have*
   * As a user, I want to customize my news feed so that I can choose the type of content I want to see more or less of.
 
 ### **8. User Follow/Unfollow**
@@ -234,7 +234,7 @@ These are all the USER STORIES that were introduced for this project. Sorted by 
 
 * USER STORY [#51](https://github.com/kpetrauskas92/XPLORER/issues/51)
 
-    View Followers and Following Lists
+    View Followers and Following Lists *Won't Have*
   * As a user, I want to view lists of users who follow me and users I am following so that I can manage and understand my network on the platform.
 
 ### **9. User Search**
@@ -246,7 +246,7 @@ These are all the USER STORIES that were introduced for this project. Sorted by 
 
 * USER STORY [#53](https://github.com/kpetrauskas92/XPLORER/issues/53)
 
-    Advanced User Search
+    Advanced User Search *Won't Have*
   * As a user, I want to filter my search results so that I can narrow down and find specific users based on criteria like location, interests, or mutual connections.
 
 ### **10. User Logout**
@@ -319,7 +319,7 @@ These are all the USER STORIES that were introduced for this project. Sorted by 
 
 ---
 
-* USER STORY [#28](https://github.com/kpetrauskas92/XPLORER/issues/28)
+* USER STORY [#28](https://github.com/kpetrauskas92/XPLORER/issues/28) *Won't Have*
 
 > Verification - As a registered user, I want my profile to be verified so that other users can trust the authenticity of my profile.
 
@@ -334,7 +334,7 @@ These are all the USER STORIES that were introduced for this project. Sorted by 
 
 ---
 
-USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
+USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29) *Won't Have*
 > Social Media Integration - As a user, I want to register on the platform using my social media accounts so that I can simplify the sign-up process and quickly join the community.
 
 **Acceptance Criteria**:
@@ -365,7 +365,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 
 ---
 
-* USER STORY [#31](https://github.com/kpetrauskas92/XPLORER/issues/31)
+* USER STORY [#31](https://github.com/kpetrauskas92/XPLORER/issues/31) *Won't Have*
 
 > Forgotten Password - As a user who has forgotten my password, I want to reset it so that I can regain access to my account.
 
@@ -504,7 +504,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 
 ---
 
-* USER STORY [#39](https://github.com/kpetrauskas92/XPLORER/issues/39)
+* USER STORY [#39](https://github.com/kpetrauskas92/XPLORER/issues/39) *Won't Have*
 
 > Tagging in Posts - As a user, I want to add tags to my post so that it can be more discoverable to users interested in that topic.
 
@@ -566,7 +566,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 
 ---
 
-* USER STORY [#45](https://github.com/kpetrauskas92/XPLORER/issues/45)
+* USER STORY [#45](https://github.com/kpetrauskas92/XPLORER/issues/45) *Won't Have*
 
 > View Liked Content - As a user, I want to view posts and comments I've previously liked so that I can revisit content that I enjoyed or found valuable.
 
@@ -660,7 +660,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 
 ---
 
-* USER STORY [#48](https://github.com/kpetrauskas92/XPLORER/issues/48)
+* USER STORY [#48](https://github.com/kpetrauskas92/XPLORER/issues/48) *Won't Have*
 
 > Customize News Feed - As a user, I want to customize my news feed so that I can choose the type of content I want to see more or less of.
 
@@ -707,7 +707,7 @@ USER STORY [#29](https://github.com/kpetrauskas92/XPLORER/issues/29)
 
 ---
 
-USER STORY [#51](https://github.com/kpetrauskas92/XPLORER/issues/51)
+USER STORY [#51](https://github.com/kpetrauskas92/XPLORER/issues/51) *Won't Have*
 > View Followers and Following Lists - As a user, I want to view lists of users who follow me and users I am following so that I can manage and understand my network on the platform.
 
 **Acceptance Criteria**:
@@ -738,7 +738,7 @@ USER STORY [#51](https://github.com/kpetrauskas92/XPLORER/issues/51)
 
 ---
 
-* USER STORY [#53](https://github.com/kpetrauskas92/XPLORER/issues/53)
+* USER STORY [#53](https://github.com/kpetrauskas92/XPLORER/issues/53) *Won't Have*
 
 > Advanced User Search - As a user, I want to filter my search results so that I can narrow down and find specific users based on criteria like location, interests, or mutual connections.
 
@@ -780,7 +780,7 @@ The wireframes for the website were produced in Balsamiq. The frames shown below
 
 <details><summary>View</summary>
 
-![Landing Page Wireframe](static/media/readme/wireframes/Landing.png)
+![Landing Page Wireframe](static/media/readme/wireframes/Landing.webp)
 
 </details>
 
@@ -788,7 +788,7 @@ The wireframes for the website were produced in Balsamiq. The frames shown below
 
 <details><summary>View</summary>
 
-![Login/Register Wireframe](static/media/readme/wireframes/Login_Register.png)
+![Login/Register Wireframe](static/media/readme/wireframes/Login_Register.webp)
 
 </details>
 
@@ -796,7 +796,7 @@ The wireframes for the website were produced in Balsamiq. The frames shown below
 
 <details><summary>View</summary>
 
-![Home Page Wireframe](static/media/readme/wireframes/Index.png)
+![Home Page Wireframe](static/media/readme/wireframes/Index.webp)
 
 </details>
 
@@ -804,7 +804,7 @@ The wireframes for the website were produced in Balsamiq. The frames shown below
 
 <details><summary>View</summary>
 
-![Post Detail Wireframe](static/media/readme/wireframes/Post_Detail.png)
+![Post Detail Wireframe](static/media/readme/wireframes/Post_Detail.webp)
 
 </details>
 
@@ -812,7 +812,7 @@ The wireframes for the website were produced in Balsamiq. The frames shown below
 
 <details><summary>View</summary>
 
-![Profile Wireframe](static/media/readme/wireframes/Profile.png)
+![Profile Wireframe](static/media/readme/wireframes/Profile.webp)
 
 </details>
 
@@ -820,7 +820,7 @@ The wireframes for the website were produced in Balsamiq. The frames shown below
 
 <details><summary>View</summary>
 
-![Search Wireframe](static/media/readme/wireframes/Search.png)
+![Search Wireframe](static/media/readme/wireframes/Search.webp)
 
 </details>
 
@@ -844,7 +844,7 @@ PostgreSQL was used as a database, hosted on ElephantSQL, to store and manage da
 
 This structure allows for a dynamic and interactive platform where users can create content, engage with other users' content, and establish connections with other users. Diagram created with [dbdiagram.io](https://dbdiagram.io)
 
-![Database Schema Diagram](static/media/readme/db_diagram.png)
+![Database Schema Diagram](static/media/readme/misc/db_diagram.webp)
 
 ---
 
@@ -859,7 +859,7 @@ This structure allows for a dynamic and interactive platform where users can cre
 XPLORER is a mobile-first social media platform designed to offer an app-like experience on the web. Its design places content at the center, capturing users' attention and reducing distractions.
 
 After setting up the site structure and wireframes, I picked the colors using colormind. For the look, I took inspiration from the colors of the logo and chose simple, distraction-free colors often found in social media platforms. I also checked the colors to ensure they contrast well, making the site easy to read and use for everyone.
-![Colour Palate image](static/media/readme/color_palette.png)
+![Colour Palate image](static/media/readme/misc/color_palette.webp)
 
 ### Typography
 
@@ -883,7 +883,7 @@ Features a beautiful video background setting the scene for the platform. The ti
 
 * This immersive landing design ensures a memorable first impression for visitors,      guiding newcomers and returning users alike.
 
-![Landing Page](static/media/readme/Homepage.png)
+![Landing Page](static/media/readme/features/landing_page.webp)
 
 #### Signin/Sign up Page
 
@@ -891,7 +891,7 @@ Sign in Page: A straightforward form designed specifically for returning users t
 
 Sign up Page: An intuitive form created for newcomers, offering a simple process to join the community. Streamlines the onboarding process, making the first step into the community a breeze.
 
-![Signin/Sign up Page](static/media/readme/Signin_up.gif)
+![Signin/Sign up Page](static/media/readme/gifs/signin_up.gif)
 
 #### Navigation Bar
 
@@ -899,15 +899,15 @@ Features an efficient search input field and a profile image that reveals a drop
 
 * Maximizes utility and accessibility, ensuring users have the essential tools at their fingertips.
 
-![Logged in User Nav Bar](static/media/readme/auth_navbar.png)
+![Logged in User Nav Bar](static/media/readme/features/navbar.webp)
 
 #### Newsfeed Page
 
-Displays a curated feed of posts from users being followed, complemented by an option for users to share their own content.
+Displays a curated feed of posts from users being followed and their own, complemented by an option for users to share their own content.
 
 * The central hub for user interaction and content discovery.
 
-![Newsfeed Page](static/media/readme/Newsfeed.gif)
+![Newsfeed Page](static/media/readme/gifs/newsfeed.gif)
 
 #### Post Detail Page
 
@@ -915,15 +915,12 @@ Showcases the full content of a clicked post, offering users a deep dive into th
 
 * Crafted for enhanced user engagement and content appreciation.
 
-![Post Detail Page](static/media/readme/Post_detail.png)
-
-#### Post Detail Author
-
 Equips authors with the tools to edit or delete their posts, providing control over their shared content.
 
-* Empowering content creators, ensuring their narratives remain dynamic and current.
+* Empowering content creators, ensuring their narratives remain dynamic and current
 
-![Post Detail Author](static/media/readme/Post_detail_author.png)
+![Post Detail Page](static/media/readme/gifs/post_detail.gif)
+
 
 #### Post Comments
 
@@ -931,23 +928,21 @@ Facilitates community interaction by allowing users to comment on posts and dire
 
 * Turning individual posts into thriving hubs of conversation and community insights.
 
-![Post Comments](static/media/readme/Comments_view.gif)
+![Post Comments](static/media/readme/gifs/comments.gif)
 
-#### Default Profile Page
+#### Profile Page
 
-Presents newcomers with a basic profile layout, ready for customization.
+Users are greeted with a foundational profile template, primed for personalization.
 
-* A welcoming start, encouraging users to make their space unique.
+* A warm initiation inspires users to tailor their space distinctively.
 
-![Default Profile Page](static/media/readme/Default_profile.png)
+The platform provides a range of modifiable fields, from display names and avatars to geographical locations and personal bios. After making changes, users instantly view their refreshed profile.
 
-#### Profile Edit Page
+A feature to delete the profile is also available.
 
-Offers a suite of editable fields, from name and profile picture to location and bio. Post edits, users are immediately shown their updated profile.
+* Empowering users to have full control over their online presence on the platform.
 
-* Putting users in the driver's seat of their digital identity on the platform.
-
-![Profile Edit Page](static/media/readme/Profile_edit.gif)
+![Profile Page](static/media/readme/gifs/profile.gif)
 
 #### User Follow/Unfollow
 
@@ -955,7 +950,7 @@ Enables users to manage their connections, providing options to follow or unfoll
 
 * Streamlining community building and user networking.
 
-![User Follow/Unfollow](static/media/readme/follow_unfollow.gif)
+![User Follow/Unfollow](static/media/readme/gifs/follow_unfollow.gif)
 
 #### Search Page
 
@@ -963,7 +958,7 @@ Designed for efficient user discovery, showcasing platform members. Users matchi
 
 * Optimizing the exploration experience, connecting users with potential new connections or content.
 
-![Search Page](static/media/readme/Search.gif)
+![Search Page](static/media/readme/gifs/search.gif)
 
 #### Log Out Page
 
@@ -971,7 +966,7 @@ Prior to exiting, users are presented with a prompt, ensuring their intent to le
 
 * Safeguarding user sessions and enhancing platform security.
 
-![Log Out Page](static/media/readme/Logout.gif)
+![Log Out Page](static/media/readme/features/sign_out.webp)
 
 </details>
 
@@ -979,7 +974,7 @@ Prior to exiting, users are presented with a prompt, ensuring their intent to le
 
 XPLORER prioritizes mobile responsiveness, ensuring that users on-the-go have a seamless and efficient experience. The design is meticulously optimized for smaller screens, removing any unnecessary elements and focusing on core functionalities to provide a clean and intuitive interface. The layout, buttons, and interactive elements are all touch-friendly, making navigation a breeze.
 
-![Mobile View](static/media/readme/Mobile.gif)
+![Mobile View]()
 
 ---
 
@@ -1019,11 +1014,11 @@ In reflection, while these bugs were temporary setbacks, they shaped my journey,
 
 Altough there is a specific bug that was identified related to the auto-play feature on iOS devices. The platform's video background, which is designed to auto-play upon page load, doesn't operate as intended on these devices.
 
-![Bug](static/media/readme/bug1.png)
+![Bug](static/media/readme/misc/bug1.webp)
 
 The solution was found to be relatively straightforward for iOS Safari: by adding the playsinline attribute, the auto-play issue was addressed, ensuring the video background functions properly across a wider range of devices.
 
-![Bug Fix](static/media/readme/bug1fix.png)
+![Bug Fix](static/media/readme/misc/bug1fix.webp)
 
 While the auto-play feature for the video background has been optimized for iOS devices with the addition of the playsinline attribute, there are still potential scenarios where the video might not auto-play. Specifically, if a device is in low power mode or if certain security settings are in place, the auto-play functionality might be hindered. This behavior has been noted in Apple's developer forums. It serves as a reminder of the complexities and nuances in ensuring consistent multimedia playback across various device settings and conditions.
 

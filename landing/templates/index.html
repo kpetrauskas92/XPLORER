@@ -4,25 +4,25 @@
 
 {% block content %}
 
-<!-- Hero Section with Background Video -->
+<!-- Hero Section Start -->
 <section class="d-flex align-items-center video-container">
 
     <!-- Background Video -->
     <video autoplay="autoplay" muted="muted" playsinline="playsinline" loop="loop" id="myVideo">
         <source src="{% static 'media/video-background.mp4' %}" type="video/mp4">
-        <!-- Fallback text in case the video doesn't load -->
+        <!-- Fallback for browsers that don't support the video tag -->
         Your browser does not support the video.
     </video>
 
-    <!-- Overlay Content on Video -->
+    <!-- Overlay Content -->
     <div class="container position-absolute d-flex flex-column justify-content-center align-items-center">
         
-        <!-- Main Heading and Description -->
+        <!-- Heading & Description -->
         <div class="col-md-10 col-sm-12 text-center">
             <h1 class="display-2 text-uppercase fw-bold text-white">Xplore the network</h1>
             <p class="mt-3 lead fw-bold fs-4 text-white">Unleash Your Inner Adventurer, Share Your Journeys!</p>
             
-            <!-- Login/Register Button -->
+            <!-- Action Buttons (Login/Register) -->
             <div class="d-flex justify-content-center mt-4">
                 <a href="{% url 'account_login' %}" class="btn btn-outline-light mr-2 me-1">Login</a>
                 <a href="{% url 'account_signup' %}" class="btn btn-outline-light mr-2 ms-1">Register</a>
@@ -30,7 +30,6 @@
         </div>
     </div>
 </section>
+<!-- Hero Section End -->
 
 {% endblock %}
-
-
