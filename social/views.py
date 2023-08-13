@@ -4,6 +4,7 @@ from django.db.models import Q, Max
 from django.urls import reverse_lazy
 from django.http import JsonResponse
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.contrib.auth import logout
 from django.contrib import messages
 from django.views import View
 from django.core.paginator import Paginator
@@ -224,6 +225,24 @@ class ProfileEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def form_valid(self, form):
         messages.success(self.request, 'Your profile has been updated!')
         return super().form_valid(form)
+
+
+class ProfileDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = UserProfile
+    template_name = 'profile_delete.html'
+    success_url = reverse_lazy('index')
+
+    def test_func(self):
+        profile = self.get_object()
+        return self.request.user == profile.user
+
+    def delete(self, request, *args, **kwargs):
+        user = self.request.user
+        response = super().delete(request, *args, **kwargs)
+        logout(request)
+        user.delete()
+        messages.success(request, 'Your profile has been deleted!')
+        return response
 
 
 class AddFollower(LoginRequiredMixin, View):

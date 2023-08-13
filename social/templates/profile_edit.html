@@ -34,6 +34,11 @@
                 <button class="btn btn-success mt-3" aria-label="Submit profile changes">Submit</button>
             </div>
         </form>
+        
+        <!-- Delete Profile Form -->
+        <div class="d-grid gap-2">
+            <a href="{% url 'delete-profile' object.pk %}" class="btn btn-danger mt-3" aria-label="Delete profile">Delete Profile</a>
+        </div>
     </div>
     
 </div>
@@ -44,8 +49,6 @@
         $('#id_location').select2();
     });
 }, 1000);  // waits 1 second before running the script
-
 </script>
 
 {% endblock grid_content %}
-
